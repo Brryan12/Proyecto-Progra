@@ -127,6 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ContenedoraDoctores.cpp" />
+    <ClCompile Include="ContenedoraDueño.cpp" />
+    <ClCompile Include="ContenedoraEspecialidades.cpp" />
+    <ClCompile Include="ContenedoraMascotas.cpp" />
     <ClCompile Include="Doctor.cpp" />
     <ClCompile Include="Dueño.cpp" />
     <ClCompile Include="Especialidad.cpp" />
@@ -134,6 +138,10 @@
     <ClCompile Include="Mascota.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ContenedoraDoctores.h" />
+    <ClInclude Include="ContenedoraDueño.h" />
+    <ClInclude Include="ContenedoraEspecialidades.h" />
+    <ClInclude Include="ContenedoraMascotas.h" />
     <ClInclude Include="Doctor.h" />
     <ClInclude Include="Dueño.h" />
     <ClInclude Include="Especialidad.h" />

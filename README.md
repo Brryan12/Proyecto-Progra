@@ -1,5 +1,5 @@
 # Proyecto_Progra_1
-- [PDF con las intrucciones del proyecto](https://www.aulavirtual.una.ac.cr/pluginfile.php/269053/mod_resource/content/1/proyecto%201%20%28Hospital%20Veterinario%29%20%2815-08-24%29%20.pdf)
+- [PDF con las instrucciones del proyecto](./proyecto%201%20(Hospital%20Veterinario)%20(15-08-24)%20.pdf)
 ## Temas:
 - Principios del PPOO
 - Adecuada abstracción y encapsulamiento

@@ -76,5 +76,8 @@
     <None Include="README.md">
       <Filter>Archivos de recursos</Filter>
     </None>
+    <None Include="Notas.md">
+      <Filter>Archivos de recursos</Filter>
+    </None>
   </ItemGroup>
 </Project>

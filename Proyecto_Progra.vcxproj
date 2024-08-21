@@ -139,6 +139,10 @@
     <ClInclude Include="Especialidad.h" />
     <ClInclude Include="Mascota.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="proyecto 1 (Hospital Veterinario) (15-08-24) .pdf" />
+    <None Include="README.md" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

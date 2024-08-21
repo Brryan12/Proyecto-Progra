@@ -45,4 +45,12 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="proyecto 1 (Hospital Veterinario) (15-08-24) .pdf">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="README.md">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+  </ItemGroup>
 </Project>

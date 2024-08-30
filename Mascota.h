@@ -1,19 +1,22 @@
 #pragma once
-#include "Dueño.h"
+#include <iostream>
+#include <sstream>
+using namespace std;
 class Mascota
 {
 private:
 	string nombre;
 	string especie;
-	Dueño* dueño;
+	
 public:
-	Mascota(string nombre, string especie, Dueño* dueño);
+	Mascota(string nombre, string especie);
 	~Mascota();
 	string getNombre();
 	string getEspecie();
-	Dueño* getDueño();
+
 	void setNombre(string nombre);
 	void setEspecie(string especie);
-	void setDueño(Dueño* dueño);
+	
+	string toString();
 };
 

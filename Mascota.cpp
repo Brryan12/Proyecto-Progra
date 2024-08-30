@@ -1,10 +1,10 @@
 #include "Mascota.h"
 
-Mascota::Mascota(string nombre, string especie, Dueño* dueño)
+Mascota::Mascota(string nombre, string especie)
 {
 	this->nombre = nombre;
 	this->especie = especie;
-	this->dueño = dueño;
+
 }
 
 Mascota::~Mascota()
@@ -21,10 +21,7 @@ string Mascota::getEspecie()
 	return especie;
 }
 
-Dueño* Mascota::getDueño()
-{
-	return dueño;
-}
+
 
 void Mascota::setNombre(string nombre)
 {
@@ -36,9 +33,11 @@ void Mascota::setEspecie(string especie)
 	this->especie = especie;
 }
 
-void Mascota::setDueño(Dueño* dueño)
+string Mascota::toString()
 {
-	this->dueño = dueño;
+	stringstream s;
+	s << "Nombre: " << nombre << " - Especie: " << especie << endl;
+	return s.str();
 }
 
 

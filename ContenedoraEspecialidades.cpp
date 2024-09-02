@@ -32,7 +32,7 @@ string ContenedoraEspecialidades::toString()
 {
 	stringstream s;
 	for (int i = 0; i < cant; i++) {
-		s<<
+		s << especialidad[i]->toString();
 	}
 
 	return s.str();

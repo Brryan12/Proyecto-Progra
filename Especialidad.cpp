@@ -39,3 +39,11 @@ void Especialidad::setDescripcion(string descripcion)
 	this->descripcion = descripcion;
 }
 
+string Especialidad::toString()
+{
+	stringstream s;
+	s << "Especialidad: " << nombre << endl << "Descripcion: " << descripcion << endl;
+
+	return s.str();
+}
+

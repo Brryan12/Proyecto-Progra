@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 class Especialidad
@@ -15,5 +16,6 @@ public:
 	string getDescripcion();
 	void setNombre(string nombre);
 	void setDescripcion(string descripcion);
+	string toString();
 };
 

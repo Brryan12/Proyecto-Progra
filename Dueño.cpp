@@ -7,11 +7,13 @@ Dueño::Dueño(string nombre, string cedula, int cantidadMascotas)
 	this->cedula = cedula;
 	this->cantidadMascotas = cantidadMascotas;
 	this->mascotas = new ContenedoraMascotas(cantidadMascotas);
+	this->agenda = new ContenedoraCitas(66);
 }
 
 Dueño::~Dueño()
 {
 	delete mascotas;
+	delete agenda;
 }
 
 string Dueño::getNombre()

@@ -4,6 +4,7 @@
 #include <string>
 #include "ContenedoraMascotas.h"
 #include "Mascota.h"
+#include "ContenedoraCitas.h"
 using namespace std;
 
 class Dueño
@@ -13,6 +14,7 @@ private:
 	string cedula;
 	ContenedoraMascotas* mascotas;
 	int cantidadMascotas;
+	ContenedoraCitas* agenda;
 public:
 	Dueño(string nombre, string cedula, int cantidadMascotas);
 	~Dueño();

@@ -1,17 +1,11 @@
 #include "Doctor.h"
 
-Doctor::Doctor()
-{
-	this->nombre = "";
-	this->cedula = "";
-	this->especialidad = nullptr;
-}
-
-Doctor::Doctor(string nombre, string cedula, Especialidad* especialidad)
+Doctor::Doctor(string nombre, string cedula, Especialidad* especialidad, ContenedoraCitas* agenda)
 {
 	this->nombre = nombre;
 	this->cedula = cedula;
 	this->especialidad = especialidad;
+	this->agenda = new ContenedoraCitas(66);
 }
 
 Doctor::~Doctor()

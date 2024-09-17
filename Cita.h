@@ -12,6 +12,11 @@ string dia;
 public:
 	Cita(string dia, string hora);
 	virtual ~Cita();
+	std::string getDia();
+	std::string getHora();
+	void setDia();
+	void setHora();
+	std::string toString();
 };
 
 
@@ -21,7 +26,7 @@ Intente meter un codigo de citas y me tiro un monton de errores
 #pragma once
 #include <iostream>
 #include <sstream>
-#include "Dueño.h"
+#include "Dueï¿½o.h"
 #include "Doctor.h"
 #include "Mascota.h"
 using namespace std;
@@ -30,14 +35,14 @@ using namespace std;
 
 class Cita {
 private:
-    Dueño* dueño;
+    Dueno* dueï¿½o;
     Mascota* mascota;
     Doctor* doctor;
     string hora, dia;
 
     public:
         Cita();
-        Cita(Dueño*, Mascota*, Doctor*, string , string);
+        Cita(Dueno*, Mascota*, Doctor*, string , string);
         virtual ~Cita();
 
         string getDia();

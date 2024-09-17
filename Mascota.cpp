@@ -4,7 +4,7 @@ Mascota::Mascota(string nombre, string especie)
 {
 	this->nombre = nombre;
 	this->especie = especie;
-
+	this->dueno = nullptr;
 }
 
 Mascota::~Mascota()
@@ -31,6 +31,21 @@ void Mascota::setNombre(string nombre)
 void Mascota::setEspecie(string especie)
 {
 	this->especie = especie;
+}
+
+Dueno* Mascota::getDueno() const
+{
+	return dueno;
+}
+
+void Mascota::setDueno()
+{
+	this->dueno = dueno;
+}
+
+bool Mascota::tieneDueno() const
+{	
+	return false;
 }
 
 string Mascota::toString()

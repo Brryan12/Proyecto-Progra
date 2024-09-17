@@ -1,5 +1,7 @@
 #pragma once
 #include "Cita.h"
+#include "Doctor.h"
+#include "Dueno.h"
 class ContenedoraCitas
 {
 private:
@@ -9,7 +11,7 @@ private:
 public:
 	ContenedoraCitas(int tam);
 	virtual ~ContenedoraCitas();
-	bool ingresarCita();
+	bool ingresarCita(Dueno &dueno, Doctor &doc);
 
 };
 

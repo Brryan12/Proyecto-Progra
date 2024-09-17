@@ -20,6 +20,7 @@ ContenedoraMascotas::~ContenedoraMascotas()
 
 void ContenedoraMascotas::agregarMascota(Mascota* mascota)
 {
+
 	if (cantidad < tam) {
 		mascotas[cantidad] = mascota;
 		cantidad++;

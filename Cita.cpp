@@ -1,19 +1,41 @@
 #include "Cita.h"
 
+Cita::Cita(std::string dia, std::string hora)
+{
+	this->dia = dia;
+	this->hora = hora;
+}
 
+Cita::~Cita()
+{
+}
 
+std::string Cita::getDia()
+{
+	return dia;
+}
 
+std::string Cita::getHora()
+{
+	return hora;
+}
 
+void Cita::setDia()
+{
+	this->dia = dia;
+}
 
+void Cita::setHora()
+{
+	this->hora = hora;
+}
 
-
-
-
-
-
-
-
-
+std::string Cita::toString()
+{
+	std::stringstream s;
+	s << "Dia: " << dia << " - Hora: " << hora << std::endl;
+	return s.str();
+}
 
 
 
@@ -22,7 +44,7 @@
 
 /*
 #include "Cita.h"
-#include "Dueño.h"
+#include "Dueï¿½o.h"
 #include "Doctor.h"
 #include "Mascota.h"
 
@@ -33,10 +55,10 @@ Cita::Cita(){
 
 
 
-Cita::Cita(Dueño* d, Mascota* m, Doctor* doc, string day, string h) {
+Cita::Cita(Dueï¿½o* d, Mascota* m, Doctor* doc, string day, string h) {
 	dia = day;
 	hora = h;
-	dueño = d;
+	dueï¿½o = d;
 	mascota = m;
 	doctor = doc;
 }
@@ -65,7 +87,7 @@ void Cita::sacarCita() {
 	string cedula = "";
 	cout << "Ingrese su numero de identificacion: " << endl;
 	cin>>cedula;
-	if (dueño->getCedula() == cedula)
+	if (dueï¿½o->getCedula() == cedula)
 		cout << "Sus mascotas son las siguientes: " << endl;
 }
 

@@ -7,7 +7,7 @@
 #include "ContenedoraCitas.h"
 using namespace std;
 
-class Dueño
+class Dueno
 {
 private:
 	string nombre;
@@ -16,8 +16,8 @@ private:
 	int cantidadMascotas;
 	ContenedoraCitas* agenda;
 public:
-	Dueño(string nombre, string cedula, int cantidadMascotas);
-	~Dueño();
+	Dueno(string nombre, string cedula, int cantidadMascotas);
+	~Dueno();
 	string getNombre();
 	string getCedula();
 	void setNombre(string nombre);

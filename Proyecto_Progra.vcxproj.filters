@@ -21,7 +21,7 @@
     <ClCompile Include="Mascota.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Dueño.cpp">
+    <ClCompile Include="Dueno.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Doctor.cpp">
@@ -36,7 +36,7 @@
     <ClCompile Include="ContenedoraDoctores.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ContenedoraDueño.cpp">
+    <ClCompile Include="ContenedoraDueno.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ContenedoraMascotas.cpp">
@@ -53,7 +53,7 @@
     <ClInclude Include="Mascota.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Dueño.h">
+    <ClInclude Include="Dueno.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Doctor.h">
@@ -68,7 +68,7 @@
     <ClInclude Include="ContenedoraDoctores.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ContenedoraDueño.h">
+    <ClInclude Include="ContenedoraDueno.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="ContenedoraMascotas.h">

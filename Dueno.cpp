@@ -1,7 +1,7 @@
-#include "Dueño.h"
+#include "Dueno.h"
+//Cambie el nombre a dueno por que estaba dando problemas con la ene
 
-
-Dueño::Dueño(string nombre, string cedula, int cantidadMascotas)
+Dueno::Dueno(string nombre, string cedula, int cantidadMascotas)
 {
 	this->nombre = nombre;
 	this->cedula = cedula;
@@ -10,40 +10,40 @@ Dueño::Dueño(string nombre, string cedula, int cantidadMascotas)
 	this->agenda = new ContenedoraCitas(66);
 }
 
-Dueño::~Dueño()
+Dueno::~Dueno()
 {
 	delete mascotas;
 	delete agenda;
 }
 
-string Dueño::getNombre()
+string Dueno::getNombre()
 {
 	return nombre;
 }
 
-string Dueño::getCedula()
+string Dueno::getCedula()
 {
 	return cedula;
 }
 
-void Dueño::setNombre(string nombre)
+void Dueno::setNombre(string nombre)
 {
 	this->nombre = nombre;
 }
 
-void Dueño::setCedula(string cedula)
+void Dueno::setCedula(string cedula)
 {
 	this->cedula = cedula;
 }
 
-void Dueño::agregarMascota(Mascota* mascota)
+void Dueno::agregarMascota(Mascota* mascota)
 {
 	this->mascotas->agregarMascota(mascota);
 
 }
 
 
-string Dueño::toString()
+string Dueno::toString()
 {
 	stringstream s;
 	s << "Dueño: " << nombre << " - Cedula: " << cedula << endl;

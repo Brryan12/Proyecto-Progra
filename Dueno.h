@@ -3,7 +3,7 @@
 #include <sstream>
 #include <string>
 using namespace std;
-
+//NO TOCAR DUENO
 class Dueno
 {
 private:

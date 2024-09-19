@@ -17,9 +17,9 @@ public:
 	string getEspecie();
 	void setNombre(string nombre);
 	void setEspecie(string especie);
-	Dueno* getDueno() const;
-	void setDueno();
-	bool tieneDueno() const;
+	Dueno* getDueno();
+	void setDueno(Dueno* nuevoDueno);
+	bool tieneDueno();
 	string toString();
 };
 

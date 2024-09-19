@@ -33,25 +33,30 @@ void Mascota::setEspecie(string especie)
 	this->especie = especie;
 }
 
-Dueno* Mascota::getDueno() const
+
+Dueno* Mascota::getDueno()
 {
 	return dueno;
 }
 
-void Mascota::setDueno()
+void Mascota::setDueno(Dueno* nuevoDueno)
 {
 	this->dueno = dueno;
 }
 
-bool Mascota::tieneDueno() const
-{	
-	return false;
+bool Mascota::tieneDueno()
+{
+	return dueno!=nullptr;
 }
+
 
 string Mascota::toString()
 {
 	stringstream s;
 	s << "Nombre: " << nombre << " - Especie: " << especie << endl;
+	if (dueno) {
+		s << dueno->toString();
+	}
 	return s.str();
 }
 

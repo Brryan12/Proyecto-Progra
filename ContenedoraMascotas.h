@@ -1,6 +1,7 @@
 #pragma once
 #include "Mascota.h"
 #include <sstream>
+#include "Dueno.h"
 using namespace std;	
 
 class ContenedoraMascotas
@@ -12,7 +13,7 @@ private:
 public:
 	ContenedoraMascotas(int tam);
 	~ContenedoraMascotas();
-	void agregarMascota(Mascota* mascota);
+	void agregarMascota(Mascota* mascota, Dueno* dueno);
 	string toString();
 };
 

@@ -18,12 +18,12 @@ ContenedoraMascotas::~ContenedoraMascotas()
 	delete[] mascotas;
 }
 
-void ContenedoraMascotas::agregarMascota(Mascota* mascota)
+void ContenedoraMascotas::agregarMascota(Mascota* mascota, Dueno* dueno)
 {
-
-	if (cantidad < tam) {
-		mascotas[cantidad] = mascota;
-		cantidad++;
+	if (dueno) {
+		if (cantidad < tam) {
+			mascotas[cantidad++] = mascota;
+		}
 	}
 	else {
 		cerr << "No se pueden agregar mas mascotas" << endl; //cerr es usado para imprimir errores

@@ -18,13 +18,18 @@ ContenedoraDueno::~ContenedoraDueno()
 
 bool ContenedoraDueno::existeDueno(string cedula)
 {
+	if (cedula.empty()) {
+		return false;
+	}
+
 	for (int i = 0; i < cant; i++)
 	{
-		if (duenos[i]->getCedula() == cedula)
+		if (duenos[i] != nullptr && duenos[i]->getCedula() == cedula)
 		{
 			return true;
 		}
 	}
+	return false;
 }
 
 void ContenedoraDueno::agregarDueno(Dueno* dueno){
@@ -41,4 +46,9 @@ void ContenedoraDueno::agregarDueno(Dueno* dueno){
 	} else{
 		cerr << "Ya existe un dueño con esa cedula" << endl;
 	}
+}
+
+string ContenedoraDueno::toString() const
+{
+	return string();
 }

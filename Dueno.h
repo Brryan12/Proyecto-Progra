@@ -1,22 +1,19 @@
 #pragma once
+#include <string>
 #include <iostream>
 #include <sstream>
-#include <string>
 using namespace std;
-//NO TOCAR DUENO
-class Dueno
-{
+class Dueno {
 private:
-	string nombre;
-	string cedula;
+    string nombre;
+    string cedula;
 
 public:
-	Dueno(string nombre, string cedula);
-	~Dueno();
-	string getNombre();
-	string getCedula();
-	void setNombre(string nombre);
-	void setCedula(string cedula);
+    Dueno(string nombre, string apellido);
+	virtual ~Dueno();
+    string getNombre() const;
+    string getCedula() const;
+    void setNombre(string nombre);
+    void setCedula(string cedula);
 	string toString();
 };
-

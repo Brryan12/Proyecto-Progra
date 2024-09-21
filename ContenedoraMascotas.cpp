@@ -1,41 +1,72 @@
 #include "ContenedoraMascotas.h"
 
-ContenedoraMascotas::ContenedoraMascotas(int tam)
-{
-	this->tam = tam;
-	this->cantidad = 0;
-	this->mascotas = new Mascota*[tam];
-	for (int i = 0; i < tam; i++) {
+ContenedoraMascotas::ContenedoraMascotas(int tamano)
+	: tamano(tamano), cantidad(0) {
+	mascotas = new Mascota * [tamano];  
+	for (int i = 0; i < tamano; i++) {
 		mascotas[i] = nullptr;
 	}
 }
 
-ContenedoraMascotas::~ContenedoraMascotas()
-{
+
+ContenedoraMascotas::~ContenedoraMascotas(){
 	for (int i = 0; i < cantidad; i++) {
-		delete mascotas[i];
+		delete mascotas[i];  
 	}
-	delete[] mascotas;
+	delete[] mascotas;  
 }
 
-void ContenedoraMascotas::agregarMascota(Mascota* mascota, Dueno* dueno)
+bool ContenedoraMascotas::agregarMascota(Mascota* mascota)
 {
-	if (dueno) {
-		if (cantidad < tam) {
-			mascotas[cantidad++] = mascota;
+	if (cantidad < tamano && mascota != nullptr) {
+		mascotas[cantidad] = mascota;
+		cantidad++;
+		return true;
+	}
+	return false;
+}
+
+std::string ContenedoraMascotas::toString() const
+{
+	{
+		std::stringstream s;
+		for (int i = 0; i < cantidad; i++) {
+			s << "Dueño: " << mascotas[i]->getDueno()->toString() << std::endl
+				<< "---MASCOTA---\n"
+				<< "Nombre: " << mascotas[i]->getNombre() << std::endl
+				<< "Especie: " << mascotas[i]->getEspecie()
+				<< std::endl << std::endl;
+		}
+		return s.str();
+	}
+}
+
+std::string ContenedoraMascotas::toString(string cedula) const {
+	stringstream s;
+	bool encontrado = false;
+	if (cedula.empty()) {
+		s << "Error: la cedula esta vacia" << endl;
+		return s.str();
+	}
+	if (cantidad == 0) {
+		s << "No hay mascotas registradas" << endl;
+		return s.str();
+	}
+	for (int i = 0; i < cantidad; i++) {
+		if (mascotas[i]->getDueno()->getCedula() == cedula) {
+			if (!encontrado) {
+				cout << "\nMascotas registradas por el dueño: " << mascotas[i]->getDueno()->toString() << endl;
+				encontrado = true;
+			}
+			cout << "Nombre: " << mascotas[i]->getNombre()
+				<< ", Especie: " << mascotas[i]->getEspecie()
+				<< endl;
 		}
 	}
-	else {
-		cerr << "No se pueden agregar mas mascotas" << endl; //cerr es usado para imprimir errores
+	if (!encontrado) {
+		s << "Error: No hay dueños con la cédula ingresada: "<<cedula<<endl ;
 	}
-}
 
-string ContenedoraMascotas::toString()
-{
-	stringstream s;
-	for (int i = 0; i < cantidad; i++) {
-		s << mascotas[i]->toString();
-	}
 	return s.str();
 }
 

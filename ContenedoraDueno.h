@@ -11,6 +11,6 @@ public:
 	~ContenedoraDueno();
 	bool existeDueno(string cedula);
 	void agregarDueno(Dueno* dueno);
-	string toString();
+	string toString() const;
 };
 

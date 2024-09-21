@@ -1,24 +1,18 @@
 #include "Dueno.h"
-//Cambie el nombre a dueno por que estaba dando problemas con la ene
 
-Dueno::Dueno(string nombre, string cedula)
-{
-	this->nombre = nombre;
-	this->cedula = cedula;
-
-}
+Dueno::Dueno(string nombre, string cedula) : nombre(nombre), cedula(cedula) {}
 
 Dueno::~Dueno()
 {
 
 }
 
-string Dueno::getNombre()
+string Dueno::getNombre() const
 {
 	return nombre;
 }
 
-string Dueno::getCedula()
+string Dueno::getCedula() const
 {
 	return cedula;
 }

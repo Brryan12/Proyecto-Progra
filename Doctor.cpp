@@ -41,3 +41,10 @@ void Doctor::setEspecialidad(Especialidad* especialidad)
 	this->especialidad = especialidad;
 }
 
+string Doctor::toString()
+{
+	stringstream s;
+	s << "Doctor: " << nombre << endl << "Cedula: " << cedula << endl << "Especialidad: " << especialidad->getNombre() << endl;
+
+	return s.str();
+}

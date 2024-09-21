@@ -16,5 +16,6 @@ public:
 	void setNombre(string nombre);
 	void setCedula(string cedula);
 	void setEspecialidad(Especialidad* especialidad);
+	string toString();
 };
 

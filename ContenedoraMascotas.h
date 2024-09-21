@@ -1,19 +1,17 @@
 #pragma once
 #include "Mascota.h"
-#include <sstream>
-#include "Dueno.h"
-using namespace std;	
+#include <iostream>
 
-class ContenedoraMascotas
-{
+class ContenedoraMascotas {
 private:
-	Mascota** mascotas;
-	int cantidad;
-	int tam;
-public:
-	ContenedoraMascotas(int tam);
-	~ContenedoraMascotas();
-	void agregarMascota(Mascota* mascota, Dueno* dueno);
-	string toString();
-};
+    Mascota** mascotas;
+    int tamano;
+    int cantidad;
 
+public:
+    ContenedoraMascotas(int tamano);
+    ~ContenedoraMascotas();
+    bool agregarMascota(Mascota* mascota);
+    std::string toString() const;
+	std::string toString(string id) const;
+};

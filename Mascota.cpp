@@ -1,63 +1,47 @@
 #include "Mascota.h"
 
-Mascota::Mascota(string nombre, string especie)
-{
-	this->nombre = nombre;
-	this->especie = especie;
-	this->dueno = nullptr;
-}
+Mascota::Mascota(std::string nombre, string especie, Dueno* dueno)
+	: nombre(nombre), especie(especie), dueno(dueno) {}
 
 Mascota::~Mascota()
 {
 }
 
-string Mascota::getNombre()
+string Mascota::getNombre() const
 {
 	return nombre;
 }
 
-string Mascota::getEspecie()
+string Mascota::getEspecie() const
 {
 	return especie;
 }
 
-
-
-void Mascota::setNombre(string nombre)
-{
-	this->nombre = nombre;
-}
-
-void Mascota::setEspecie(string especie)
-{
-	this->especie = especie;
-}
-
-
-Dueno* Mascota::getDueno()
+Dueno* Mascota::getDueno() const
 {
 	return dueno;
 }
 
 void Mascota::setDueno(Dueno* nuevoDueno)
 {
-	this->dueno = dueno;
+	dueno = nuevoDueno;
 }
 
-bool Mascota::tieneDueno()
+void Mascota::setNombre(string nuevoNombre)
+{
+	nombre = nuevoNombre;
+
+}
+
+void Mascota::setEspecie(string nuevaEspecie)
+{
+	especie = nuevaEspecie;
+}
+
+
+bool Mascota::tieneDueno() const
 {
 	return dueno!=nullptr;
-}
-
-
-string Mascota::toString()
-{
-	stringstream s;
-	s << "Nombre: " << nombre << " - Especie: " << especie << endl;
-	if (dueno) {
-		s << dueno->toString();
-	}
-	return s.str();
 }
 
 

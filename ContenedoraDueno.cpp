@@ -18,10 +18,6 @@ ContenedoraDueno::~ContenedoraDueno()
 
 bool ContenedoraDueno::existeDueno(string cedula)
 {
-	if (cedula.empty()) {
-		return false;
-	}
-
 	for (int i = 0; i < cant; i++)
 	{
 		if (duenos[i] != nullptr && duenos[i]->getCedula() == cedula)

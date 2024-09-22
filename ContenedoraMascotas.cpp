@@ -44,10 +44,7 @@ std::string ContenedoraMascotas::toString() const
 std::string ContenedoraMascotas::toString(string cedula) const {
 	stringstream s;
 	bool encontrado = false;
-	if (cedula.empty()) {
-		s << "Error: la cedula esta vacia" << endl;
-		return s.str();
-	}
+
 	if (cantidad == 0) {
 		s << "No hay mascotas registradas" << endl;
 		return s.str();

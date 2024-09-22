@@ -12,9 +12,14 @@ using namespace std;
 
 int main()
 {
-	Mascota* mascota1 = new Mascota("Firulais", "Perro" );
-	Mascota* mascota2 = new Mascota("Michi", "Gato");
-	Mascota* mascota3 = new Mascota("Piolin", "Pajaro");
+	Dueno* Jean = new Dueno("Jean", "2084");
+	Dueno* Michael= new Dueno("Michael", "3234");
+	Dueno* Jimmy = new Dueno("Jimmy", "6464");
+
+	Mascota* mascota1 = new Mascota("Firulais", "Perro", Jean);
+	Mascota* mascota2 = new Mascota("Michi", "Gato", Michael);
+	Mascota* mascota3 = new Mascota("Piolin", "Pajaro", Jimmy);
+
 	ContenedoraMascotas* contenedoraMascotas = new ContenedoraMascotas(3);
 	contenedoraMascotas->agregarMascota(mascota1);
 	contenedoraMascotas->agregarMascota(mascota2);

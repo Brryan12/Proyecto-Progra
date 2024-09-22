@@ -13,7 +13,7 @@ private:
 public:
     // Constructor que requiere un dueño
     Mascota(string nombre, string especie, Dueno* dueno);
-
+    virtual ~Mascota();
     string getNombre() const;
     string getEspecie() const;
     Dueno* getDueno() const;

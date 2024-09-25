@@ -136,6 +136,7 @@
     <ClCompile Include="Doctor.cpp" />
     <ClCompile Include="Dueno.cpp" />
     <ClCompile Include="Especialidad.cpp" />
+    <ClCompile Include="Interfaz.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mascota.cpp" />
   </ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="Doctor.h" />
     <ClInclude Include="Dueno.h" />
     <ClInclude Include="Especialidad.h" />
+    <ClInclude Include="Interfaz.h" />
     <ClInclude Include="Mascota.h" />
   </ItemGroup>
   <ItemGroup>

@@ -74,7 +74,7 @@ capacidad máxima adecuada.
 
 - **Cancelar cita:** Se debe pedir el número de identificación del dueño y mostrar los doctores con los cuales tiene citas asignadas. El usuario elige el doctor y luego selecciona la cita asignada que desea cancelar.
   
-- **Mostrar Calendario de Citas por Doctor:** El calendario se debe mostrar en formato de tabla con los 6 días y todas las horas de consulta. Las horas ocupadas por citas asignadas deben estar destacadas.
+ **Mostrar Calendario -de Citas por Doctor:** El calendario se debe mostrar en formato de tabla con los 6 días y todas las horas de consulta. Las horas ocupadas por citas asignadas deben estar destacadas.
 
 - **Mostrar Citas por Dueño:** Se deben mostrar todas las mascotas del dueño. El usuario elige la mascota para visualizar las citas correspondientes.
 

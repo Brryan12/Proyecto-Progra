@@ -1,5 +1,6 @@
 #pragma once
 #include "Especialidad.h"
+#include "ContenedoraDoctores.h"
 #include <iostream>
 #include <sstream>
 using namespace std;
@@ -12,10 +13,11 @@ private:
 	int tam;
 public:
 	ContenedoraEspecialidades(int tam);
-
+	Especialidad* getEspecialidad(int posicion);
 	virtual ~ContenedoraEspecialidades();
-
-	void agregarEspecialidad(Especialidad* nuevaEspecialidad);
-
+	static string convertirMinusculas(const string& cadena);
+	bool yaExiste(const string &nombre);
+	bool agregarEspecialidad(Especialidad* nuevaEspecialidad);
 	string toString();
+	string imprimirDoctoresOrdenados(ContenedoraDoctores *doctores);
 };

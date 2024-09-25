@@ -1,5 +1,9 @@
 #pragma once
 #include "Especialidad.h"
+#include <iostream>
+#include <sstream>
+using namespace std;
+class Especialidad;
 class Doctor
 {
 private:

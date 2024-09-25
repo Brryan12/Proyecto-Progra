@@ -39,9 +39,4 @@ void Mascota::setEspecie(string nuevaEspecie)
 }
 
 
-bool Mascota::tieneDueno() const
-{
-	return dueno!=nullptr;
-}
-
 

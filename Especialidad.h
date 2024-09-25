@@ -17,5 +17,6 @@ public:
 	void setNombre(string nombre);
 	void setDescripcion(string descripcion);
 	string toString();
+
 };
 

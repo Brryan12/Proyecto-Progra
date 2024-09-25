@@ -7,23 +7,53 @@ ContenedoraEspecialidades::ContenedoraEspecialidades(int tam){
 	
 }
 
+Especialidad* ContenedoraEspecialidades::getEspecialidad(int posicion)
+{
+	if (posicion >= 0 && posicion <= cant) {
+		return this->especialidad[posicion];;
+	}
+	else {
+		return nullptr;
+	}
+}
+
 ContenedoraEspecialidades::~ContenedoraEspecialidades()
 {
 	for (int i = 0; i < cant; i++) {
 		delete especialidad[i];
 	}
 	delete[] especialidad;
-	cout << "Contenedor destruido" << endl;
 }
 
-void ContenedoraEspecialidades::agregarEspecialidad(Especialidad* nuevaEspecialidad)
+string ContenedoraEspecialidades::convertirMinusculas(const string& cadena) {
+	string resultado = cadena;
+	for (int i = 0; i < resultado.length(); i++) { 
+		resultado[i] = tolower(resultado[i]);
+	}
+	return resultado;
+}
+bool ContenedoraEspecialidades::yaExiste(const string& nombre)
 {
-	if (cant < tam) {
+	string nombreMinuscula = convertirMinusculas(nombre);
+
+	for (int i = 0; i < cant; i++) {
+		if (convertirMinusculas(especialidad[i]->getNombre()) == nombreMinuscula)
+			return true;
+	}
+
+	return false;
+}
+
+
+bool ContenedoraEspecialidades::agregarEspecialidad(Especialidad* nuevaEspecialidad)
+{
+	if (cant < tam && !yaExiste(nuevaEspecialidad->getNombre())) { //==false
 		especialidad[cant] = nuevaEspecialidad;
 		cant++;
+		return true;
 	}
 	else {
-		cerr << "No se pueden agregar mas especialidades, contenedor lleno." << endl;
+		return false;
 	}
 
 }
@@ -31,9 +61,30 @@ void ContenedoraEspecialidades::agregarEspecialidad(Especialidad* nuevaEspeciali
 string ContenedoraEspecialidades::toString()
 {
 	stringstream s;
+	s << "Especialidades: " << endl;
 	for (int i = 0; i < cant; i++) {
-		s << especialidad[i]->toString();
+		s << i+1 <<especialidad[i]->toString();
 	}
 
 	return s.str();
 }
+
+std::string ContenedoraEspecialidades::imprimirDoctoresOrdenados(ContenedoraDoctores* doctores) {
+	std::stringstream s;
+
+	for (int i = 0; i < cant; i++) {
+		s << "Especialidad: " << especialidad[i]->getNombre() << endl;
+
+		// Imprimir doctores de esta especialidad
+		for (int j = 0; j < doctores->getCant(); j++) {
+			Doctor* doctor = doctores->getDoctor(j);
+			if (doctor->getEspecialidad() == especialidad[i]) {
+				s << " - " << doctor->toString() << endl;
+			}
+		}
+	}
+
+	return s.str();
+}
+
+

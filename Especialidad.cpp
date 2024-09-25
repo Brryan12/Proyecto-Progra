@@ -4,7 +4,6 @@ Especialidad::Especialidad()
 {
 	this->nombre = "";
 	this->descripcion = "";
-
 }
 
 Especialidad::Especialidad(string nombre, string descripcion)
@@ -43,7 +42,10 @@ string Especialidad::toString()
 {
 	stringstream s;
 	s << "Especialidad: " << nombre << endl << "Descripcion: " << descripcion << endl;
-
+	
 	return s.str();
 }
+
+
+
 

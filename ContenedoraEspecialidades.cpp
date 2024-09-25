@@ -69,7 +69,7 @@ string ContenedoraEspecialidades::toString()
 	return s.str();
 }
 
- string ContenedoraEspecialidades::imprimirDoctoresOrdenados(ContenedoraDoctores* doctores) {
+string ContenedoraEspecialidades::imprimirDoctoresOrdenados(ContenedoraDoctores* doctores) {
 	 stringstream s;
 
 	for (int i = 0; i < cant; i++) {
@@ -77,13 +77,11 @@ string ContenedoraEspecialidades::toString()
 
 		// Imprimir doctores de esta especialidad
 		for (int j = 0; j < doctores->getCant(); j++) {
-			Doctor* doctor = doctores->getDoctor(j);
-			if (doctor->getEspecialidad() == especialidad[i]) {
-				s << " - " << doctor->toString() << endl;
+			if (doctores->getDoctor(j)->getEspecialidad() == especialidad[i]) {
+				s << " - " << doctores->getDoctor(j)->toString() << endl;
 			}
 		}
 	}
-
 	return s.str();
 }
 

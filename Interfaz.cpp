@@ -9,12 +9,12 @@ Interfaz::~Interfaz() {}
 
 void Interfaz::mostrarMenu() {
 do {
-    cout << "# Menú Principal" << endl;
-    cout << "1. **Submenú Administración**" << endl;
-    cout << "2. **Submenú Control de Citas**" << endl;
-    cout << "3. **Submenú Búsquedas y Listados**" << endl;
+    cout << "# Menï¿½ Principal" << endl;
+    cout << "1. **Submenï¿½ Administraciï¿½n**" << endl;
+    cout << "2. **Submenï¿½ Control de Citas**" << endl;
+    cout << "3. **Submenï¿½ Bï¿½squedas y Listados**" << endl;
     cout << "4. **Salir**" << endl;
-    cout << " Ingrese la opción : " << endl;
+    cout << " Ingrese la opciï¿½n : " << endl;
    cin >> op;
 
     manejarMP(op);
@@ -38,7 +38,7 @@ do {
                 cout << "Saliendo del programa..." << endl;
                 break;
             default:
-                cout << "Opción no válida. Intente de nuevo." << endl;
+                cout << "Opciï¿½n no vï¿½lida. Intente de nuevo." << endl;
                 break;
             }
         }
@@ -46,13 +46,13 @@ do {
     void Interfaz::mostrarSubmAdm() {
         int op2;
         do {
-            cout << "# Submenú Administración" << endl;
+            cout << "# Submenu Administracion" << endl;
             cout << "1. **Ingresar Especialidades**" << endl;
             cout << "2. **Ingresar Doctor**" << endl;
-            cout << "3. **Ingresar Dueño**" << endl;
+            cout << "3. **Ingresar Dueï¿½o**" << endl;
             cout << "4. **Ingresar Mascota**" << endl;
-            cout << "0. **Regresar al Menú Principal**" << endl;
-            cout << "Ingrese la opción: ";
+            cout << "0. **Regresar al Menï¿½ Principal**" << endl;
+            cout << "Ingrese la opciï¿½n: ";
             cin >> op2;
 
             switch (op2) {
@@ -65,17 +65,17 @@ do {
               
                 break;
             case 3:
-                cout << "Ingresar Dueño" << endl;
+                cout << "Ingresar Dueï¿½o" << endl;
                 
                 break;
             case 4:
                 cout << "Ingresar Mascota" << endl;
                  break;
             case 0:
-                cout << "Regresando al Menú Principal.." << endl;
+                cout << "Regresando al Menï¿½ Principal.." << endl;
                 break;
             default:
-                cout << "Opción no válida. Intente de nuevo." << endl;
+                cout << "Opciï¿½n no vï¿½lida. Intente de nuevo." << endl;
                 break;
             }
         } while (op2 != 0);
@@ -86,40 +86,40 @@ do {
     
         int op3;
         do {
-            cout << "## Submenú Control de Citas" << endl;
+            cout << "## Submenï¿½ Control de Citas" << endl;
             cout << "1. **Sacar Cita**" << endl;
             cout << "2. **Cancelar Cita**" << endl;
             cout << "3. **Mostrar Calendario de Citas por Doctor**" << endl;
-            cout << "4. **Mostrar Citas por Dueño**" << endl;
-            cout << "0. **Regresar al Menú Principal**" << endl;
-            cout << "Ingrese la opción: ";
+            cout << "4. **Mostrar Citas por Dueï¿½o**" << endl;
+            cout << "0. **Regresar al Menï¿½ Principal**" << endl;
+            cout << "Ingrese la opciï¿½n: ";
             cin >> op3;
 
             switch (op3) {
             case 1:
                 cout << "1. **Sacar Cita**" << endl;
-                //  **Sacar cita:** Se debe pedir el número de identificación del dueño y mostrar la lista de sus mascotas. El usuario debe elegir la mascota deseada de la lista mostrada.
-               // Luego, se debe pedir la especialidad deseada y mostrar la lista de doctores disponibles en esa especialidad.El usuario podrá elegir el doctor y luego seleccionar una fecha y hora para la cita de acuerdo al horario semanal del doct
+                //  **Sacar cita:** Se debe pedir el nï¿½mero de identificaciï¿½n del dueï¿½o y mostrar la lista de sus mascotas. El usuario debe elegir la mascota deseada de la lista mostrada.
+               // Luego, se debe pedir la especialidad deseada y mostrar la lista de doctores disponibles en esa especialidad.El usuario podrï¿½ elegir el doctor y luego seleccionar una fecha y hora para la cita de acuerdo al horario semanal del doct
 
                 break;
             case 2:
                 cout << "2. **Cancelar Cita**" << endl;
-                // **Cancelar cita:** Se debe pedir el número de identificación del dueño y mostrar los doctores con los cuales tiene citas asignadas. El usuario elige el doctor y luego selecciona la cita asignada que desea cancelar.
+                // **Cancelar cita:** Se debe pedir el nï¿½mero de identificaciï¿½n del dueï¿½o y mostrar los doctores con los cuales tiene citas asignadas. El usuario elige el doctor y luego selecciona la cita asignada que desea cancelar.
                 break;
             case 3:
                 cout << "3. **Mostrar Calendario de Citas por Doctor**" << endl;
-                // **Mostrar Calendario - de Citas por Doctor : **El calendario se debe mostrar en formato de tabla con los 6 días y todas las horas de consulta.Las horas ocupadas por citas asignadas deben estar destacadas.
+                // **Mostrar Calendario - de Citas por Doctor : **El calendario se debe mostrar en formato de tabla con los 6 dï¿½as y todas las horas de consulta.Las horas ocupadas por citas asignadas deben estar destacadas.
                 break;
             case 4:
-                cout << "4. **Mostrar Citas por Dueño**" << endl;
-                // **Mostrar Citas por Dueño:** Se deben mostrar todas las mascotas del dueño. El usuario elige la mascota para visualizar las citas correspondientes.
+                cout << "4. **Mostrar Citas por Dueï¿½o**" << endl;
+                // **Mostrar Citas por Dueï¿½o:** Se deben mostrar todas las mascotas del dueï¿½o. El usuario elige la mascota para visualizar las citas correspondientes.
 
                 break;
             case 0:
-                cout << "Regresando al Menú Principal.." << endl;
+                cout << "Regresando al Menï¿½ Principal.." << endl;
                 break;
             default:
-                cout << "Opción no válida. Intente de nuevo." << endl;
+                cout << "Opciï¿½n no vï¿½lida. Intente de nuevo." << endl;
                 break;
             }
         } while (op3 != 0);
@@ -130,13 +130,13 @@ do {
 
             int op4;
             do {
-                cout << "## Búsquedas y Listados" << endl;
+                cout << "## Bï¿½squedas y Listados" << endl;
                 cout << "1. **Mostrar Listado de Especialidades**" << endl;
                 cout << "2. **Mostrar Listado de Doctores por Especialidad**" << endl;
-                cout << "3. **Mostrar Dueños con sus Mascotas**" << endl;
+                cout << "3. **Mostrar Dueï¿½os con sus Mascotas**" << endl;
                 cout << "4. **Mostrar Pacientes por Doctor**" << endl;
-                cout << "0. **Regresar al Menú Principal**" << endl;
-                cout << "Ingrese la opción: ";
+                cout << "0. **Regresar al Menï¿½ Principal**" << endl;
+                cout << "Ingrese la opciï¿½n: ";
                 cin >> op4;
 
                 switch (op4) {
@@ -149,17 +149,17 @@ do {
                     
                     break;
                 case 3:
-                    cout << "3. **Mostrar Dueños con sus Mascotas**" << endl;
+                    cout << "3. **Mostrar Dueï¿½os con sus Mascotas**" << endl;
 
                     break;
                 case 4:
                     cout << "4. **Mostrar Pacientes por Doctor**" << endl;
                     break;
                 case 0:
-                    cout << "Regresando al Menú Principal.." << endl;
+                    cout << "Regresando al Menï¿½ Principal.." << endl;
                     break;
                 default:
-                    cout << "Opción no válida. Intente de nuevo." << endl;
+                    cout << "Opciï¿½n no vï¿½lida. Intente de nuevo." << endl;
                     break;
                 }
             } while (op4 != 0);

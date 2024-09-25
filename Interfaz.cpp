@@ -10,11 +10,11 @@ Interfaz::~Interfaz() {}
 void Interfaz::mostrarMenu() {
 do {
     cout << "# Men� Principal" << endl;
-    cout << "1. **Submen� Administraci�n**" << endl;
-    cout << "2. **Submen� Control de Citas**" << endl;
-    cout << "3. **Submen� B�squedas y Listados**" << endl;
+    cout << "1. **Submenu Administraci�n**" << endl;
+    cout << "2. **Submenu Control de Citas**" << endl;
+    cout << "3. **Submenu Busquedas y Listados**" << endl;
     cout << "4. **Salir**" << endl;
-    cout << " Ingrese la opci�n : " << endl;
+    cout << " Ingrese la opcion : " << endl;
    cin >> op;
 
     manejarMP(op);
@@ -38,7 +38,7 @@ do {
                 cout << "Saliendo del programa..." << endl;
                 break;
             default:
-                cout << "Opci�n no v�lida. Intente de nuevo." << endl;
+                cout << "Opcion no valida. Intente de nuevo." << endl;
                 break;
             }
         }
@@ -49,9 +49,9 @@ do {
             cout << "# Submenu Administracion" << endl;
             cout << "1. **Ingresar Especialidades**" << endl;
             cout << "2. **Ingresar Doctor**" << endl;
-            cout << "3. **Ingresar Due�o**" << endl;
+            cout << "3. **Ingresar Dueno**" << endl;
             cout << "4. **Ingresar Mascota**" << endl;
-            cout << "0. **Regresar al Men� Principal**" << endl;
+            cout << "0. **Regresar al Menu Principal**" << endl;
             cout << "Ingrese la opci�n: ";
             cin >> op2;
 
@@ -65,17 +65,17 @@ do {
               
                 break;
             case 3:
-                cout << "Ingresar Due�o" << endl;
+                cout << "Ingresar Dueno" << endl;
                 
                 break;
             case 4:
                 cout << "Ingresar Mascota" << endl;
                  break;
             case 0:
-                cout << "Regresando al Men� Principal.." << endl;
+                cout << "Regresando al Menu Principal.." << endl;
                 break;
             default:
-                cout << "Opci�n no v�lida. Intente de nuevo." << endl;
+                cout << "Opcion no valida. Intente de nuevo." << endl;
                 break;
             }
         } while (op2 != 0);
@@ -86,13 +86,13 @@ do {
     
         int op3;
         do {
-            cout << "## Submen� Control de Citas" << endl;
+            cout << "## Submenu Control de Citas" << endl;
             cout << "1. **Sacar Cita**" << endl;
             cout << "2. **Cancelar Cita**" << endl;
             cout << "3. **Mostrar Calendario de Citas por Doctor**" << endl;
-            cout << "4. **Mostrar Citas por Due�o**" << endl;
+            cout << "4. **Mostrar Citas por Dueno**" << endl;
             cout << "0. **Regresar al Men� Principal**" << endl;
-            cout << "Ingrese la opci�n: ";
+            cout << "Ingrese la opcion: ";
             cin >> op3;
 
             switch (op3) {
@@ -116,10 +116,10 @@ do {
 
                 break;
             case 0:
-                cout << "Regresando al Men� Principal.." << endl;
+                cout << "Regresando al Menu Principal.." << endl;
                 break;
             default:
-                cout << "Opci�n no v�lida. Intente de nuevo." << endl;
+                cout << "Opcion no valida. Intente de nuevo." << endl;
                 break;
             }
         } while (op3 != 0);
@@ -130,13 +130,13 @@ do {
 
             int op4;
             do {
-                cout << "## B�squedas y Listados" << endl;
+                cout << "## Busquedas y Listados" << endl;
                 cout << "1. **Mostrar Listado de Especialidades**" << endl;
                 cout << "2. **Mostrar Listado de Doctores por Especialidad**" << endl;
-                cout << "3. **Mostrar Due�os con sus Mascotas**" << endl;
+                cout << "3. **Mostrar Duenos con sus Mascotas**" << endl;
                 cout << "4. **Mostrar Pacientes por Doctor**" << endl;
-                cout << "0. **Regresar al Men� Principal**" << endl;
-                cout << "Ingrese la opci�n: ";
+                cout << "0. **Regresar al Menu Principal**" << endl;
+                cout << "Ingrese la opcion: ";
                 cin >> op4;
 
                 switch (op4) {
@@ -149,17 +149,17 @@ do {
                     
                     break;
                 case 3:
-                    cout << "3. **Mostrar Due�os con sus Mascotas**" << endl;
+                    cout << "3. **Mostrar Duenos con sus Mascotas**" << endl;
 
                     break;
                 case 4:
                     cout << "4. **Mostrar Pacientes por Doctor**" << endl;
                     break;
                 case 0:
-                    cout << "Regresando al Men� Principal.." << endl;
+                    cout << "Regresando al Menu Principal.." << endl;
                     break;
                 default:
-                    cout << "Opci�n no v�lida. Intente de nuevo." << endl;
+                    cout << "Opcion no valida. Intente de nuevo." << endl;
                     break;
                 }
             } while (op4 != 0);

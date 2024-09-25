@@ -15,7 +15,7 @@ ContenedoraDoctores::~ContenedoraDoctores()
     delete[] doctores;
 }
 
-bool ContenedoraDoctores::existeDoctor(std::string cedula)
+bool ContenedoraDoctores::existeDoctor( string cedula)
 {
     for (int i = 0; i < cant; i++) {
         if (doctores[i]->getCedula() == cedula) {
@@ -50,9 +50,9 @@ int ContenedoraDoctores::getCant()
     return cant;
 }
 
-std::string ContenedoraDoctores::toString() const
+ string ContenedoraDoctores::toString() const
 {
-    std::stringstream s;
+     stringstream s;
     for (int i = 0; i < cant; i++) {
         s << doctores[i]->toString();
     }

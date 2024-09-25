@@ -26,22 +26,22 @@ bool ContenedoraMascotas::agregarMascota(Mascota* mascota)
 	return false;
 }
 
-std::string ContenedoraMascotas::toString() const
+ string ContenedoraMascotas::toString() const
 {
 	{
-		std::stringstream s;
+		 stringstream s;
 		for (int i = 0; i < cantidad; i++) {
-			s << "Dueño: " << mascotas[i]->getDueno()->toString() << std::endl
+			s << "Dueño: " << mascotas[i]->getDueno()->toString() <<  endl
 				<< "---MASCOTA---\n"
-				<< "Nombre: " << mascotas[i]->getNombre() << std::endl
+				<< "Nombre: " << mascotas[i]->getNombre() <<  endl
 				<< "Especie: " << mascotas[i]->getEspecie()
-				<< std::endl << std::endl;
+				<<  endl <<  endl;
 		}
 		return s.str();
 	}
 }
 
-std::string ContenedoraMascotas::toString(string cedula) const {
+ string ContenedoraMascotas::toString(string cedula) const {
 	stringstream s;
 	bool encontrado = false;
 

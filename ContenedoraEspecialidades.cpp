@@ -69,8 +69,8 @@ string ContenedoraEspecialidades::toString()
 	return s.str();
 }
 
-std::string ContenedoraEspecialidades::imprimirDoctoresOrdenados(ContenedoraDoctores* doctores) {
-	std::stringstream s;
+ string ContenedoraEspecialidades::imprimirDoctoresOrdenados(ContenedoraDoctores* doctores) {
+	 stringstream s;
 
 	for (int i = 0; i < cant; i++) {
 		s << "Especialidad: " << especialidad[i]->getNombre() << endl;

@@ -12,11 +12,11 @@ string dia;
 public:
 	Cita(string dia, string hora);
 	virtual ~Cita();
-	std::string getDia();
-	std::string getHora();
+	 string getDia();
+	 string getHora();
 	void setDia();
 	void setHora();
-	std::string toString();
+	 string toString();
 };
 
 

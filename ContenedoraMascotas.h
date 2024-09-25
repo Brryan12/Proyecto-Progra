@@ -12,6 +12,6 @@ public:
     ContenedoraMascotas(int tamano);
     ~ContenedoraMascotas();
     bool agregarMascota(Mascota* mascota);
-    std::string toString() const;
-	std::string toString(string id) const;
+     string toString() const;
+	 string toString(string id) const;
 };

@@ -1,6 +1,6 @@
 #include "Cita.h"
 
-Cita::Cita(std::string dia, std::string hora)
+Cita::Cita( string dia,  string hora)
 {
 	this->dia = dia;
 	this->hora = hora;
@@ -10,12 +10,12 @@ Cita::~Cita()
 {
 }
 
-std::string Cita::getDia()
+ string Cita::getDia()
 {
 	return dia;
 }
 
-std::string Cita::getHora()
+ string Cita::getHora()
 {
 	return hora;
 }
@@ -30,10 +30,10 @@ void Cita::setHora()
 	this->hora = hora;
 }
 
-std::string Cita::toString()
+ string Cita::toString()
 {
-	std::stringstream s;
-	s << "Dia: " << dia << " - Hora: " << hora << std::endl;
+	 stringstream s;
+	s << "Dia: " << dia << " - Hora: " << hora <<  endl;
 	return s.str();
 }
 

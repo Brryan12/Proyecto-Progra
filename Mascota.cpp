@@ -1,6 +1,6 @@
 #include "Mascota.h"
 
-Mascota::Mascota(std::string nombre, string especie, Dueno* dueno)
+Mascota::Mascota( string nombre, string especie, Dueno* dueno)
 	: nombre(nombre), especie(especie), dueno(dueno) {}
 
 Mascota::~Mascota()

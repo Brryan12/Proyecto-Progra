@@ -4,12 +4,15 @@ ContenedoraEspecialidades::ContenedoraEspecialidades(int tam){
 	this->especialidad = new Especialidad * [tam];
 	this->cant = 0;
 	this->tam =tam;
+	for (int i = 0; i < tam; i++) {
+		especialidad[i] = nullptr;
+	}
 	
 }
 
 Especialidad* ContenedoraEspecialidades::getEspecialidad(int posicion)
 {
-	if (posicion >= 0 && posicion <= cant) {
+	if (posicion >= 0 && posicion < cant) {
 		return this->especialidad[posicion];;
 	}
 	else {
@@ -64,6 +67,51 @@ string ContenedoraEspecialidades::toString()
 	s << "Especialidades: " << endl;
 	for (int i = 0; i < cant; i++) {
 		s << i+1 <<especialidad[i]->toString();
+	}
+
+	return s.str();
+}
+
+string ContenedoraEspecialidades::toString(string especialidades, ContenedoraDoctores* doctores) {
+	stringstream s;
+	string nombreMinuscula = convertirMinusculas(especialidades);
+
+	if (cant == 0) {
+		s << "No hay especialidades registradas" << endl;
+		return s.str();
+	}
+
+	// Verificamos si la especialidad existe
+	if (yaExiste(especialidades)) {
+		bool doctorEncontrado = false;  // Indicador para verificar si hay doctores en la especialidad
+
+		if (doctores->getCant() == 0) {
+			s << "No hay doctores registrados en el sistema." << endl;
+			return s.str();
+		}
+
+		for (int i = 0; i < cant; i++) {
+			if (convertirMinusculas(especialidad[i]->getNombre()) == nombreMinuscula) {
+				s << "Especialidad: " << especialidad[i]->getNombre() << endl;
+				s << "Doctores: " << endl;
+
+				// Recorremos los doctores buscando aquellos con la especialidad
+				for (int j = 0; j < doctores->getCant(); j++) {
+					if (doctores->getDoctor(j)->getEspecialidad() == especialidad[i]) {
+						s << " - " << doctores->getDoctor(j)->toString() << endl;
+						doctorEncontrado = true;  // Se encontró al menos un doctor
+					}
+				}
+
+				// Si no se encontró ningún doctor en esta especialidad
+				if (!doctorEncontrado) {
+					s << "No hay doctores registrados en esta especialidad." << endl;
+				}
+			}
+		}
+	}
+	else {
+		s << "No se encontró la especialidad." << endl;
 	}
 
 	return s.str();

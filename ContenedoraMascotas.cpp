@@ -26,6 +26,14 @@ bool ContenedoraMascotas::agregarMascota(Mascota* mascota)
 	return false;
 }
 
+Mascota* ContenedoraMascotas::getMascota(int posicion) {
+	if (posicion >= 0 && posicion < cantidad) {
+		return mascotas[posicion];
+	}
+	return nullptr; // Manejar caso de índice inválido
+
+}
+
  string ContenedoraMascotas::toString() const
 {
 	{
@@ -55,7 +63,7 @@ bool ContenedoraMascotas::agregarMascota(Mascota* mascota)
 				cout << "\nMascotas registradas por el dueño: " << mascotas[i]->getDueno()->toString() << endl;
 				encontrado = true;
 			}
-			cout << "Nombre: " << mascotas[i]->getNombre()
+			cout << i<<"Nombre: " << mascotas[i]->getNombre()
 				<< ", Especie: " << mascotas[i]->getEspecie()
 				<< endl;
 		}

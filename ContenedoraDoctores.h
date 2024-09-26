@@ -28,5 +28,6 @@ public:
 
 
 	string toString() const;
+	string toString(string especialidad) const;
 };
 

@@ -40,7 +40,7 @@ int main()
 	Doctor* doctor3 = new Doctor("Maria", "789", contenedoraEspecialidades->getEspecialidad(0));
 	Doctor* doctor4 = new Doctor("Jose", "101", contenedoraEspecialidades->getEspecialidad(0));
 	Doctor* doctor5 = new Doctor("Ana", "112", contenedoraEspecialidades->getEspecialidad(1));
-	Doctor* doctor6 = new Doctor("Luis ", "131", contenedoraEspecialidades->getEspecialidad(2));
+	Doctor* doctor6 = new Doctor("Luis ", "131", contenedoraEspecialidades->getEspecialidad(0));
 	ContenedoraDoctores* contenedoraDoctores = new ContenedoraDoctores(10);
 	contenedoraDoctores->agregarDoctor(doctor1);
 	contenedoraDoctores->agregarDoctor(doctor2);
@@ -60,6 +60,29 @@ int main()
 	//}
 	cout << "Doctores ordenados por especialidad: " << endl;
 	cout << contenedoraEspecialidades->imprimirDoctoresOrdenados(contenedoraDoctores);
+
+	Dueno* dueno1 = new Dueno("Juan", "123");
+	Dueno* dueno2 = new Dueno("Pedro", "456");
+	Dueno* dueno3 = new Dueno("Maria", "789");
+	Dueno* dueno4 = new Dueno("Jose", "101");
+	Mascota* mascota1 = new Mascota("Firulais", "Perro", dueno1);
+	Mascota* mascota2 = new Mascota("Mishi", "Gato", dueno2);
+	Mascota* mascota3 = new Mascota("Piolin", "Canario", dueno3);
+	Mascota* mascota4 = new Mascota("Rex", "Perro", dueno4);
+	Mascota* mascota5 = new Mascota("Garfield", "Gato", dueno1);
+	ContenedoraMascotas* contenedoraMascotas = new ContenedoraMascotas(10);
+	contenedoraMascotas->agregarMascota(mascota1);
+	contenedoraMascotas->agregarMascota(mascota2);
+	contenedoraMascotas->agregarMascota(mascota3);
+	contenedoraMascotas->agregarMascota(mascota4);
+	contenedoraMascotas->agregarMascota(mascota5);
+	cout << contenedoraMascotas->toString("123");
+	cout << contenedoraEspecialidades->toString("Dermatologia", contenedoraDoctores);
+	Doctor *doctor7 = new Doctor("Juan", "457545", contenedoraEspecialidades->getEspecialidad(2));
+	Doctor *doctor8= new Doctor("Pedro", "54567", contenedoraEspecialidades->getEspecialidad(2));
+	contenedoraDoctores->agregarDoctor(doctor7);
+	contenedoraDoctores->agregarDoctor(doctor8);
+	cout << contenedoraEspecialidades->toString("Dermatologia", contenedoraDoctores);
 
 	delete contenedoraEspecialidades;
 		return 0;

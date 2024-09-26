@@ -5,18 +5,18 @@ using namespace std;
 
 class Cita
 {
-private:
-string dia;
-	string hora;
+    private:
+        string dia;
+        string hora;
 
-public:
-	Cita(string dia, string hora);
-	virtual ~Cita();
-	 string getDia();
-	 string getHora();
-	void setDia();
-	void setHora();
-	 string toString();
+    public:
+	    Cita(string dia, string hora);
+	    virtual ~Cita();
+	     string getDia();
+	     string getHora();
+	    void setDia();
+	    void setHora();
+	     string toString();
 };
 
 

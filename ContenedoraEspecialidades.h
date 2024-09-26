@@ -19,5 +19,6 @@ public:
 	bool yaExiste(const string &nombre);
 	bool agregarEspecialidad(Especialidad* nuevaEspecialidad);
 	string toString();
+	string toString(string especialidades, ContenedoraDoctores* doctores);
 	string imprimirDoctoresOrdenados(ContenedoraDoctores *doctores);
 };

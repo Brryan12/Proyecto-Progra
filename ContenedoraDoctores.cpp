@@ -5,6 +5,9 @@ ContenedoraDoctores::ContenedoraDoctores(int tam)
     this->doctores = new Doctor * [tam];
     this->cant = 0;
     this->tam = tam;
+    for (int i = 0; i < tam; i++) {
+        doctores[i] = nullptr;
+    }
 }
 
 ContenedoraDoctores::~ContenedoraDoctores()
@@ -57,4 +60,25 @@ int ContenedoraDoctores::getCant()
         s << doctores[i]->toString();
     }
     return s.str();
-}
+ }
+
+ string ContenedoraDoctores::toString(string cedula) const
+ {
+	 stringstream s;
+	 bool encontrado = false;
+
+	 if (cant == 0) {
+		 s << "No hay doctores registrados" << endl;
+		 return s.str();
+	 }
+	 for (int i = 0; i < cant; i++) {
+		 if (doctores[i]->getCedula() == cedula) {
+			 s << doctores[i]->toString();
+			 encontrado = true;
+		 }
+	 }
+	 if (!encontrado) {
+		 s << "Doctor no encontrado" << endl;
+	 }
+	 return s.str();
+ }

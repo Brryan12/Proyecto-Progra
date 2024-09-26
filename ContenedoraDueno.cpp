@@ -5,6 +5,9 @@ ContenedoraDueno::ContenedoraDueno(int tam)
 	this->tam = tam;
 	this->cant = 0;
 	this->duenos = new Dueno * [tam];
+	for (int i = 0; i < tam; i++) {
+		duenos[i] = nullptr;
+	}
 }
 
 ContenedoraDueno::~ContenedoraDueno()

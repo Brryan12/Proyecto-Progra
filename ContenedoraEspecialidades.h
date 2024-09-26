@@ -15,6 +15,9 @@ public:
 	ContenedoraEspecialidades(int tam);
 	Especialidad* getEspecialidad(int posicion);
 	virtual ~ContenedoraEspecialidades();
+	/// @brief 
+	/// @param cadena 
+	/// @return 
 	static string convertirMinusculas(const string& cadena);
 	bool yaExiste(const string &nombre);
 	bool agregarEspecialidad(Especialidad* nuevaEspecialidad);

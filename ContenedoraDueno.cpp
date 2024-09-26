@@ -40,10 +40,10 @@ void ContenedoraDueno::agregarDueno(Dueno* dueno){
 		}
 		else
 		{
-			cerr << "No se pueden agregar mas dueños" << endl;
+			cerr << "No se pueden agregar mas duenos" << endl;
 		}
 	} else{
-		cerr << "Ya existe un dueño con esa cedula" << endl;
+		cerr << "Ya existe un dueno con esa cedula" << endl;
 	}
 }
 

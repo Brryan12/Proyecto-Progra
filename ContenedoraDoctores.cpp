@@ -44,7 +44,7 @@ Doctor* ContenedoraDoctores::getDoctor(int posicion) {
     if (posicion >= 0 && posicion < cant) {
         return doctores[posicion];
     }
-    return nullptr; // Manejar caso de índice inválido
+    return nullptr; 
 }
 
 

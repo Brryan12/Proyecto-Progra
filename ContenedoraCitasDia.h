@@ -22,6 +22,18 @@ public:
         }
     }
 
+    bool estaOcupado(int hora, Doctor* doctor) const {
+        if (citas == nullptr) {
+            return false; // No hay citas, se considera como disponible
+        }
+        for (int i = 0; i < cant; i++) {
+            if (citas[i] != nullptr && citas[i]->getHora() == hora && citas[i]->getDoctor()->getCedula() == doctor->getCedula()) {
+                return true; // La cita está ocupada
+            }
+        }
+        return false; // La hora está disponible
+    }
+
     bool agregarCita(int hora, Doctor* doctor, Mascota* mascota) {
         if (hora >= 8 && hora < 19 && cant<tam) {
             for (int i = 0; i < cant; i++) {
@@ -29,6 +41,7 @@ public:
                     return false; // La mascota ya tiene una cita a esta hora
                 }
             }
+            cout << "Agregando cita: " << hora << " para " << mascota->getNombre() << endl;
             citas[hora-8] = new Cita(doctor, mascota, hora);
 			cant++;
             return true;

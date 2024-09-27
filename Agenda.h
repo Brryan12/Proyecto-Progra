@@ -1,6 +1,7 @@
 #pragma once
 #include "ContenedoraCitasDia.h"
 #include "ContenedoraDoctores.h"
+#include <iomanip>
 class Agenda
 {
     private:
@@ -45,19 +46,54 @@ class Agenda
             return dias[dia];
         }
 
-		string toString(string cedula, ContenedoraDoctores* doctores) const {
-			stringstream s;
-			for (int i = 0; i < 6; i++) {
-				for (int j = i; j < doctores->getCant(); j++) {
-					if (doctores->getDoctorPos(j)->getCedula() == cedula) {
-							s <<"Angenda del " << doctores->getDoctorPos(j)->toString();
-							s << "----Semana----" << endl;
-					}
-				}
-				s <<"Día " << dia[i] << ":\n" << dias[i]->toString() << "\n";
-			}
-			return s.str();
-		}
+
+        string toString(string cedula, ContenedoraDoctores* doctores) const {
+            stringstream s;
+            bool doctorEncontrado = false; // Para verificar si el doctor fue encontrado
+            int ancho_columna = 12; // Ancho fijo de cada columna
+
+            // Recorremos los doctores y buscamos por la cédula
+            for (int j = 0; j < doctores->getCant(); j++) {
+                if (doctores->getDoctorPos(j)->getCedula() == cedula) {
+                    doctorEncontrado = true; // Marcamos que encontramos al doctor
+
+                    // Imprime la cabecera de la tabla con el nombre del doctor y los días
+                    s << "Dentista: " << doctores->getDoctorPos(j)->getNombre() << "\n";
+                    s << " Hora  |  " << setw(ancho_columna) << left << dia[0]
+                        << "|  " << setw(ancho_columna) << left << dia[1]
+                        << "|  " << setw(ancho_columna) << left << dia[2]
+                        << "|  " << setw(ancho_columna) << left << dia[3]
+                        << "|  " << setw(ancho_columna) << left << dia[4]
+                        << "|  " << setw(ancho_columna) << left << dia[5] << "  |\n";
+                    s << string(90, '-') << endl; // Separador ajustado para más horas y columnas
+
+                    // Recorre las horas del día (de 8:00 a 19:00)
+                    for (int hora = 8; hora < 19; hora++) {
+                        s << (hora < 10 ? " " : "") << hora << ":00  |"; // Alineación de la hora
+
+                        // Recorre los días de la semana y verifica si está ocupado o disponible
+                        for (int dia = 0; dia < 6; dia++) {
+                            if (dias[dia]->estaOcupado(hora, doctores->getDoctorPos(j))) {
+                                s << " " << setw(ancho_columna) << left << "Ocupado" << "|";
+                            }
+                            else {
+                                s << " " << setw(ancho_columna) << left << "Disponible" << "|";
+                            }
+                        }
+                        s << "\n";
+                        s << string(90, '-') << endl; // Separador ajustado según el número de columnas y horas
+                    }
+                    break; // Detenemos la búsqueda una vez que encontramos al doctor
+                }
+            }
+
+            if (!doctorEncontrado) {
+                s << "Doctor no encontrado con la cédula: " << cedula << endl;
+            }
+
+            return s.str();
+        }
+
 
 		string toString(string cedula, ContenedoraMascotas* mascotas) {
 			stringstream s;
@@ -73,6 +109,19 @@ class Agenda
 					}
 				}
 				s << "Día " << dia[i] << ":\n" << dias[i]->toString() << "\n";
+			}
+			return s.str();
+		}
+
+		string mostrarPacientesPorDoctor(string cedula, ContenedoraDoctores* doctores) {
+			stringstream s;
+			for (int i = 0; i < 6; i++) {
+				for (int j = i; j < doctores->getCant(); j++) {
+					if (doctores->getDoctorPos(j)->getCedula() == cedula) {
+						s << "Pacientes del " << doctores->getDoctorPos(j)->toString();
+					}
+				}
+				s <<dia[i]<< dias[i]->toString() << "\n";
 			}
 			return s.str();
 		}

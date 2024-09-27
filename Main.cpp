@@ -101,12 +101,22 @@ int main()
 	if (agenda->agregarCita(1,9, doctor1, mascota1)) {
 		cout << "jiji" << endl;
 	}
+	else {
+		cout << "jaja" << endl;
+	}
+	if (agenda->agregarCita(2, 13, doctor1, mascota1)) {
+		cout << "jiji" << endl;
+	}
+	else {
+		cout << "jaja" << endl;
+	}
 	
 	cout<<agenda->toString("123", contenedoraDoctores);
 	cout << agenda->toString("123", contenedoraMascotas);
+	cout << agenda->mostrarPacientesPorDoctor("123", contenedoraDoctores);
 
 
-
+	delete agenda;
 	delete contenedoraEspecialidades;
 		return 0;
 }

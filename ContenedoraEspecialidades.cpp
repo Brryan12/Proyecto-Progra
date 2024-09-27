@@ -97,8 +97,8 @@ string ContenedoraEspecialidades::toString(string especialidades, ContenedoraDoc
 
 				// Recorremos los doctores buscando aquellos con la especialidad
 				for (int j = 0; j < doctores->getCant(); j++) {
-					if (doctores->getDoctor(j)->getEspecialidad() == especialidad[i]) {
-						s << " - " << doctores->getDoctor(j)->toString() << endl;
+					if (doctores->getDoctorPos(j)->getEspecialidad() == especialidad[i]) {
+						s << " - " << doctores->getDoctorPos(j)->toString() << endl;
 						doctorEncontrado = true;  // Se encontró al menos un doctor
 					}
 				}
@@ -125,8 +125,8 @@ string ContenedoraEspecialidades::imprimirDoctoresOrdenados(ContenedoraDoctores*
 
 		// Imprimir doctores de esta especialidad
 		for (int j = 0; j < doctores->getCant(); j++) {
-			if (doctores->getDoctor(j)->getEspecialidad() == especialidad[i]) {
-				s << " - " << doctores->getDoctor(j)->toString() << endl;
+			if (doctores->getDoctorPos(j)->getEspecialidad() == especialidad[i]) {
+				s << " - " << doctores->getDoctorPos(j)->toString() << endl;
 			}
 		}
 	}

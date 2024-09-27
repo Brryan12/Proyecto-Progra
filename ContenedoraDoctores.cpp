@@ -40,7 +40,16 @@ bool ContenedoraDoctores::agregarDoctor(Doctor* doctor)
     }
 }
 
-Doctor* ContenedoraDoctores::getDoctor(int posicion) {
+Doctor* ContenedoraDoctores::getDoctor(string cedula)
+{
+	for (int i = 0; i < cant; i++) {
+		if (doctores[i]->getCedula() == cedula) {
+			return doctores[i];
+		}
+	}
+	return nullptr;
+}
+Doctor* ContenedoraDoctores::getDoctorPos(int posicion) {
     if (posicion >= 0 && posicion < cant) {
         return doctores[posicion];
     }

@@ -13,10 +13,12 @@ public:
 	ContenedoraDoctores(int tam);
 	~ContenedoraDoctores();
 
+	Doctor* getDoctor(string cedula);
+
 	/// @brief Consigue un doctor mediante su posicion en el vector
 	/// @param posicion la posicion en la que esta en el vector
 	/// @return nullptr si no encontro ningun doctor y un objeto doctor si lo encontro
-	Doctor* getDoctor(int posicion);
+	Doctor* getDoctorPos(int posicion);
 	
 	/// @brief Consigue la cantidad del vector
 	/// @return devuelve cant que es la cantidad del vector

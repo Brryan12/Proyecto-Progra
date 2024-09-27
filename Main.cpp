@@ -6,9 +6,9 @@
 #include "ContenedoraDoctores.h"
 #include "ContenedoraMascotas.h"
 #include "ContenedoraDueno.h"
+#include "ContenedoraCitasDia.h"
+#include "Agenda.h"
 
-
-using namespace std;
 
 int main()
 {
@@ -60,6 +60,9 @@ int main()
 	//}
 	cout << "Doctores ordenados por especialidad: " << endl;
 	cout << contenedoraEspecialidades->imprimirDoctoresOrdenados(contenedoraDoctores);
+	int hora = 1;	
+	string horaStr = to_string(hora) + ":00";
+	cout << horaStr << endl;
 
 	Dueno* dueno1 = new Dueno("Juan", "123");
 	Dueno* dueno2 = new Dueno("Pedro", "456");
@@ -83,6 +86,26 @@ int main()
 	contenedoraDoctores->agregarDoctor(doctor7);
 	contenedoraDoctores->agregarDoctor(doctor8);
 	cout << contenedoraEspecialidades->toString("Dermatologia", contenedoraDoctores);
+
+	ContenedoraCitasDia* contenedoraCitasDia = new ContenedoraCitasDia();
+	Agenda* agenda = new Agenda();
+	if (agenda->agregarCita(1,8, doctor1, mascota1)) {
+		cout << "jiji" << endl;
+	}
+	if (agenda->agregarCita(0,8, doctor1, mascota1)) {
+		cout << "jiji" << endl;
+	}
+	else {
+		cout << "jaja" << endl;
+	}
+	if (agenda->agregarCita(1,9, doctor1, mascota1)) {
+		cout << "jiji" << endl;
+	}
+	
+	cout<<agenda->toString("123", contenedoraDoctores);
+	cout << agenda->toString("123", contenedoraMascotas);
+
+
 
 	delete contenedoraEspecialidades;
 		return 0;

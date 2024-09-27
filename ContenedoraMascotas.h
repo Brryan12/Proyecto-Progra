@@ -12,6 +12,7 @@ public:
     ContenedoraMascotas(int tamano);
     ~ContenedoraMascotas();
     bool agregarMascota(Mascota* mascota);
+    int getCantidad();
     Mascota* getMascota(int posicion);
     string toString() const;
 	string toString(string id) const;

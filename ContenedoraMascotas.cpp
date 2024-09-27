@@ -25,7 +25,10 @@ bool ContenedoraMascotas::agregarMascota(Mascota* mascota)
 	}
 	return false;
 }
-
+int ContenedoraMascotas::getCantidad()
+{
+	return cantidad;
+}
 Mascota* ContenedoraMascotas::getMascota(int posicion) {
 	if (posicion >= 0 && posicion < cantidad) {
 		return mascotas[posicion];

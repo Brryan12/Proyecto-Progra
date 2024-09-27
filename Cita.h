@@ -1,62 +1,22 @@
 #pragma once
-#include <iostream>
+#include <string>
 #include <sstream>
-using namespace std;
+#include "Doctor.h"  // Incluimos la clase Doctor
+#include "Mascota.h" // Incluimos la clase Mascota
 
-class Cita
-{
-    private:
-        string dia;
-        string hora;
-
-    public:
-	    Cita(string dia, string hora);
-	    virtual ~Cita();
-	     string getDia();
-	     string getHora();
-	    void setDia();
-	    void setHora();
-	     string toString();
-};
-
-
-
-/*
-Intente meter un codigo de citas y me tiro un monton de errores
-#pragma once
-#include <iostream>
-#include <sstream>
-#include "Due�o.h"
-#include "Doctor.h"
-#include "Mascota.h"
-using namespace std;
-
-
-
+class Doctor;
 class Cita {
 private:
-    Dueno* due�o;
-    Mascota* mascota;
     Doctor* doctor;
-    string hora, dia;
+    Mascota* mascota;
+    int hora;
+public:
+    Cita(Doctor* doctor, Mascota* mascota, int hora);
+        
 
-    public:
-        Cita();
-        Cita(Dueno*, Mascota*, Doctor*, string , string);
-        virtual ~Cita();
+    Doctor* getDoctor() const;
+    Mascota* getMascota() const;
+    int getHora() const;
 
-        string getDia();
-        void setDia(string);
-
-        string getHora();
-        void setHora(string);
-
-        void sacarCita();
-        void cancelCita();
-       string mostrarCitaDoc();
-        string mostrarCitaDue();
-
+    string toString() const;
 };
-
-
-*/

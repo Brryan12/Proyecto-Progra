@@ -129,7 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Agenda.cpp" />
     <ClCompile Include="Cita.cpp" />
-    <ClCompile Include="ContenedoraCitas.cpp" />
+    <ClCompile Include="ContenedoraCitasDia.cpp" />
     <ClCompile Include="ContenedoraDoctores.cpp" />
     <ClCompile Include="ContenedoraDueno.cpp" />
     <ClCompile Include="ContenedoraEspecialidades.cpp" />
@@ -138,13 +138,13 @@
     <ClCompile Include="Dueno.cpp" />
     <ClCompile Include="Especialidad.cpp" />
     <ClCompile Include="Interfaz.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Mascota.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agenda.h" />
     <ClInclude Include="Cita.h" />
-    <ClInclude Include="ContenedoraCitas.h" />
+    <ClInclude Include="ContenedoraCitasDia.h" />
     <ClInclude Include="ContenedoraDoctores.h" />
     <ClInclude Include="ContenedoraDueno.h" />
     <ClInclude Include="ContenedoraEspecialidades.h" />

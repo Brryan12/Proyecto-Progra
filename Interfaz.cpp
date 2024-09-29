@@ -3,6 +3,7 @@
  int Interfaz::getTamEspecialidades() {
 	int tamE;
 	while (true) {
+		cout << "----Bienvenido a la Veterinaria----" << endl;
 		cout << "Ingrese la cantidad maxima de especialidades: "; cin >> tamE;
 		cin.ignore();
 		if (tamE <= 0) {

@@ -1,91 +1,52 @@
 #pragma once
 #include "Cita.h"
 #include "ContenedoraMascotas.h"
+#include "ContenedoraDoctores.h"
 class ContenedoraCitasDia {
 private:
-    Cita** citas; 
+    Cita** citas;
     int tam;
     int cant;
 public:
-    ContenedoraCitasDia() {
-		this->tam = 11;
-		citas = new Cita * [11];
-        for (int i = 0; i < tam; i++) {
-            citas[i] = nullptr;
-        }
-		this->cant = 0;
-    }
 
-    ~ContenedoraCitasDia() {
-        for (int i = 0; i < tam; i++) {
-            delete citas[i];
-        }
-    }
+	/// @brief Constructor de la clase ContenedoraCitasDia
+	/// @param tamDoc tamaño de la contenedora de doctores
+    ContenedoraCitasDia(int tamDoc);
 
-    bool estaOcupado(int hora, Doctor* doctor) const {
-        if (citas == nullptr) {
-            return false; // No hay citas, se considera como disponible
-        }
-        for (int i = 0; i < cant; i++) {
-            if (citas[i] != nullptr && citas[i]->getHora() == hora && citas[i]->getDoctor()->getCedula() == doctor->getCedula()) {
-                return true; // La cita está ocupada
-            }
-        }
-        return false; // La hora está disponible
-    }
+	/// @brief Destructor default de la clase ContenedoraCitasDia
+    ~ContenedoraCitasDia();
+   
+	/// @brief Metodo que retorna la cantidad de citas
+	/// @return retorna la cantidad de citas
+    int getCant();
 
-    bool agregarCita(int hora, Doctor* doctor, Mascota* mascota) {
-        if (hora >= 8 && hora < 19 && cant<tam) {
-            for (int i = 0; i < cant; i++) {
-                if (citas[i]->getMascota() == mascota && citas[i]->getHora() == hora){
-                    return false; // La mascota ya tiene una cita a esta hora
-                }
-            }
-            cout << "Agregando cita: " << hora << " para " << mascota->getNombre() << endl;
-            citas[hora-8] = new Cita(doctor, mascota, hora);
-			cant++;
-            return true;
-        }
-        return false; // No se puede agregar la cita si está llena o la hora es incorrecta
-    }
+	/// @brief Metodo que retorna una cita de la contenedora
+	/// @param posicion posicion de la cita en el vector
+    Cita* getCita(int posicion);
 
-    bool cancelarCita(int hora, Doctor* doctor, Mascota* mascota) {
-        for (int i = 0; i < cant; i++) {
-            if (citas[i]->getDoctor() == doctor && citas[i]->getMascota() == mascota && citas[i]->getHora() == hora) {
-                delete citas[i]; // Liberamos la cita
-                for (int j = i; j < cant - 1; ++j) {
-                    citas[j] = citas[j + 1]; // Ajustamos el arreglo
-                }
-                cant--; // Decrementamos el total de citas
-                return true;
-            }
-        }
-        return false; // No se encontró la cita
-    }
+	/// @brief Metodo que verifica si una cita está ocupada
+	/// @param hora hora de la cita
+	/// @param doctor doctor de la cita
+	/// @return retorna true si la cita está ocupada, false en caso contrario
+    bool estaOcupado(int hora, Doctor* doctor) const;
 
-    string toString() const {
-        stringstream s;
-        for (int i = 0; i < cant; i++) {
-            if (citas[i] != nullptr) {
-                s << citas[i]->toString() << "\n";
-            }
-        }
-        return s.str();
-    }
+	/// @brief Metodo que agrega una cita a la contenedora
+	/// @param hora hora de la cita
+	/// @param doctor doctor de la cita
+	/// @param mascota mascota de la cita
+	/// @return retorna true si se pudo agregar la cita, false en caso contrario
+    bool agregarCita(int hora, Doctor* doctor, Mascota* mascota);
 
-	//string toString(string cedula) const {
-	//	stringstream s;
-	//	bool encontrado = false;    
-	//	for (int i = 0; i < cant; i++) {
-	//		if (citas[i] != nullptr && citas[i]->getMascota()->getDueno()->getCedula() == cedula) {
-	//			if (!encontrado) {
-	//				s << "Citas de las mascotas de " << citas[i]->getMascota()->getDueno()->getNombre() << endl;
-	//				encontrado = true;
-	//			}
-	//			s << citas[i]->toString() << endl;
-	//		}
-	//	}
-	//	return s.str();
-	//}
+	/// @brief Metodo que cancela una cita de la contenedora
+	/// @param hora hora de la cita
+	/// @param doctor doctor de la cita
+	/// @param mascota mascota de la cita
+	/// @return retorna true si se pudo cancelar la cita, false en caso contrario
+    bool cancelarCita(int hora, Doctor* doctor, Mascota* mascota);
+
+	/// @brief Metodo para imprimir la informacion de la contenedora
+	/// @return retorna un string con la informacion de la contenedora
+    string toString() const;
+    
 
 };

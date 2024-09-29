@@ -1,128 +1,61 @@
 #pragma once
-#include "ContenedoraCitasDia.h"
-#include "ContenedoraDoctores.h"
 #include <iomanip>
+#include "ContenedoraCitasDia.h"
 class Agenda
 {
-    private:
-        ContenedoraCitasDia* dias[6]; // 6 días para representar una semana.
-		string dia[6] = { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado" };
-    public:
-		Agenda() {
-			for (int i = 0; i < 6; i++) {
-				dias[i] = new ContenedoraCitasDia();
-			}
-		}
+private:
+	ContenedoraCitasDia* dias[6]; // 6 días para representar una semana.
+	string dia[6];
 
-		~Agenda() {
-			for (int i = 0; i < 6; i++) {
-				delete dias[i];
-			}
-		}
+public:
+	/// @brief Constructor de la clase Agenda
+	/// @param tamDoc tamaño de la lista de doctores
+	Agenda(int tamDoc);
 
-        bool agregarCita(int dia, int hora, Doctor* doctor, Mascota* mascota) {
-            if (dia >= 0 && dia < 6) {
-                return dias[dia]->agregarCita(hora, doctor, mascota);
-            }
-            return false;
-        }
+	/// @brief Destructor default de la clase Agenda
+	~Agenda();
 
-        bool cancelarCita(int dia, int hora, Doctor* doctor, Mascota* mascota) {
-            if (dia >= 0 && dia < 6) {
-                return dias[dia]->cancelarCita(hora, doctor, mascota);
-            }
-            return false;
-        }
-
-		std::string imprimirCitasSemana() const {
-			std::stringstream s;
-			for (int i = 0; i < 6; i++) {
-				s << "Día " << i << ":\n" << dias[i]->toString() << "\n";
-			}
-			return s.str();
-		}
-
-        ContenedoraCitasDia* getCitasDia(int dia) {
-            return dias[dia];
-        }
+	/// @brief Agrega una cita a la  agenda para un día y hora específicos
+	/// @param dia día de la semana
+	/// @param hora hora del día
+	/// @param doctor doctor que atenderá la cita
+	/// @param mascota mascota que asistirá a la cita
+	/// @return true si se pudo agregar la cita, false en caso contrario
+	bool agregarCita(int dia, int hora, Doctor* doctor, Mascota* mascota);
 
 
-        string toString(string cedula, ContenedoraDoctores* doctores) const {
-            stringstream s;
-            bool doctorEncontrado = false; // Para verificar si el doctor fue encontrado
-            int ancho_columna = 12; // Ancho fijo de cada columna
+	/// @brief Cancela una cita de la agenda para un día y hora específicos
+	/// @param dia día de la semana
+	/// @param hora hora del día
+	/// @param doctor doctor que atenderá la cita
+	/// @param mascota mascota que asistirá a la cita
+	/// @return true si se pudo cancelar la cita, false en caso contrario
+	bool cancelarCita(int dia, int hora, Doctor* doctor, Mascota* mascota);
+	
+	/// @brief Imprime las citas de la semana
+	/// @return retorna un string con las citas de la semana
+	string imprimirCitasSemana() const;
 
-            // Recorremos los doctores y buscamos por la cédula
-            for (int j = 0; j < doctores->getCant(); j++) {
-                if (doctores->getDoctorPos(j)->getCedula() == cedula) {
-                    doctorEncontrado = true; // Marcamos que encontramos al doctor
+	/// @brief Metodo que retorna las citas de un dia
+	/// @param dia dia de la semana
+	/// @return retorna un puntero a las citas de un dia
+	ContenedoraCitasDia* getCitasDia(int dia);
 
-                    // Imprime la cabecera de la tabla con el nombre del doctor y los días
-                    s << "Dentista: " << doctores->getDoctorPos(j)->getNombre() << "\n";
-                    s << " Hora  |  " << setw(ancho_columna) << left << dia[0]
-                        << "|  " << setw(ancho_columna) << left << dia[1]
-                        << "|  " << setw(ancho_columna) << left << dia[2]
-                        << "|  " << setw(ancho_columna) << left << dia[3]
-                        << "|  " << setw(ancho_columna) << left << dia[4]
-                        << "|  " << setw(ancho_columna) << left << dia[5] << "  |\n";
-                    s << string(90, '-') << endl; // Separador ajustado para más horas y columnas
+	/// @brief Metodo para mostrar la agenda de un doctor
+	/// @param cedula cedula del doctor
+	/// @param doctores contenedora de doctores
+	/// @return retorna un string con la agenda del doctor
+	string toString(string cedula, ContenedoraDoctores* doctores) const;
 
-                    // Recorre las horas del día (de 8:00 a 19:00)
-                    for (int hora = 8; hora < 19; hora++) {
-                        s << (hora < 10 ? " " : "") << hora << ":00  |"; // Alineación de la hora
+	/// @brief Metodo para mostrar las citas por dueno
+	/// @param cedula cedula del dueno
+	/// @param mascotas contenedora de mascotas
+	/// @return retorna un string con las citas del dueno
+	string mostrarCitasPorDueno(string cedula, ContenedoraMascotas* mascotas);
 
-                        // Recorre los días de la semana y verifica si está ocupado o disponible
-                        for (int dia = 0; dia < 6; dia++) {
-                            if (dias[dia]->estaOcupado(hora, doctores->getDoctorPos(j))) {
-                                s << " " << setw(ancho_columna) << left << "Ocupado" << "|";
-                            }
-                            else {
-                                s << " " << setw(ancho_columna) << left << "Disponible" << "|";
-                            }
-                        }
-                        s << "\n";
-                        s << string(90, '-') << endl; // Separador ajustado según el número de columnas y horas
-                    }
-                    break; // Detenemos la búsqueda una vez que encontramos al doctor
-                }
-            }
-
-            if (!doctorEncontrado) {
-                s << "Doctor no encontrado con la cédula: " << cedula << endl;
-            }
-
-            return s.str();
-        }
-
-
-		string toString(string cedula, ContenedoraMascotas* mascotas) {
-			stringstream s;
-			bool encontrado = false;
-			for (int i = 0; i < 6; i++) {
-				for (int j = i; j < mascotas->getCantidad(); j++) {
-					if (mascotas->getMascota(j)->getDueno()->getCedula() == cedula) {
-						if (!encontrado) {
-							s << "Citas de las mascotas de " << mascotas->getMascota(j)->getDueno()->getNombre() << endl;
-							s << "----Semana----" << endl;
-							encontrado = true;
-						}
-					}
-				}
-				s << "Día " << dia[i] << ":\n" << dias[i]->toString() << "\n";
-			}
-			return s.str();
-		}
-
-		string mostrarPacientesPorDoctor(string cedula, ContenedoraDoctores* doctores) {
-			stringstream s;
-			for (int i = 0; i < 6; i++) {
-				for (int j = i; j < doctores->getCant(); j++) {
-					if (doctores->getDoctorPos(j)->getCedula() == cedula) {
-						s << "Pacientes del " << doctores->getDoctorPos(j)->toString();
-					}
-				}
-				s <<dia[i]<< dias[i]->toString() << "\n";
-			}
-			return s.str();
-		}
-    };
+	/// @brief Metodo para mostrar los pacientes por doctor mediante la cedula del doctor
+	/// @param cedula cedula del doctor
+	/// @param doctores contenedora de doctores
+	/// @return retorna un string con los pacientes del doctor
+	string mostrarPacientesPorDoctor(string cedula, ContenedoraDoctores* doctores);
+};

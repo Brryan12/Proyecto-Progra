@@ -1,10 +1,7 @@
 #include "ContenedoraDoctores.h"
 
-ContenedoraDoctores::ContenedoraDoctores(int tam)
-{
+ContenedoraDoctores::ContenedoraDoctores(int tam): tam(tam), cant(0){
     this->doctores = new Doctor * [tam];
-    this->cant = 0;
-    this->tam = tam;
     for (int i = 0; i < tam; i++) {
         doctores[i] = nullptr;
     }
@@ -31,6 +28,7 @@ bool ContenedoraDoctores::existeDoctor( string cedula)
 bool ContenedoraDoctores::agregarDoctor(Doctor* doctor)
 {
     if (cant < tam) {
+        if(!existeDoctor(doctor->getCedula()))
         doctores[cant] = doctor;
         cant++;
         return true;

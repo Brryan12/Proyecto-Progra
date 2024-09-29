@@ -1,16 +1,8 @@
 #include "Especialidad.h"
 
-Especialidad::Especialidad()
-{
-	this->nombre = "";
-	this->descripcion = "";
-}
-
-Especialidad::Especialidad(string nombre, string descripcion)
-{
-	this->nombre = nombre;
-	this->descripcion = descripcion;
-}
+Especialidad::Especialidad(string nombre, string descripcion):
+	nombre(nombre), descripcion(descripcion)
+{}
 
 Especialidad::~Especialidad()
 {

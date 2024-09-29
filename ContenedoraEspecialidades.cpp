@@ -1,9 +1,7 @@
 #include "ContenedoraEspecialidades.h"
 
-ContenedoraEspecialidades::ContenedoraEspecialidades(int tam){
+ContenedoraEspecialidades::ContenedoraEspecialidades(int tam): tam(tam), cant(0){
 	this->especialidad = new Especialidad * [tam];
-	this->cant = 0;
-	this->tam =tam;
 	for (int i = 0; i < tam; i++) {
 		especialidad[i] = nullptr;
 	}
@@ -13,11 +11,16 @@ ContenedoraEspecialidades::ContenedoraEspecialidades(int tam){
 Especialidad* ContenedoraEspecialidades::getEspecialidad(int posicion)
 {
 	if (posicion >= 0 && posicion < cant) {
-		return this->especialidad[posicion];;
+		return this->especialidad[posicion-1];;
 	}
 	else {
 		return nullptr;
 	}
+}
+
+int ContenedoraEspecialidades::getCant()
+{
+	return cant;
 }
 
 ContenedoraEspecialidades::~ContenedoraEspecialidades()
@@ -66,13 +69,13 @@ string ContenedoraEspecialidades::toString()
 	stringstream s;
 	s << "Especialidades: " << endl;
 	for (int i = 0; i < cant; i++) {
-		s << i+1 <<especialidad[i]->toString();
+		s <<"Numero: "<< i + 1 <<endl<< especialidad[i]->toString();
 	}
 
 	return s.str();
 }
 
-string ContenedoraEspecialidades::toString(string especialidades, ContenedoraDoctores* doctores) {
+string ContenedoraEspecialidades::DoctorPorEspecialidad(string especialidades, ContenedoraDoctores* doctores) {
 	stringstream s;
 	string nombreMinuscula = convertirMinusculas(especialidades);
 

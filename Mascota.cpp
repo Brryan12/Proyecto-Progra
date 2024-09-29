@@ -22,21 +22,13 @@ Dueno* Mascota::getDueno() const
 	return dueno;
 }
 
-void Mascota::setDueno(Dueno* nuevoDueno)
+string Mascota::toString() const
 {
-	dueno = nuevoDueno;
+	stringstream s;
+	s << "Nombre: " << nombre << "\n";
+	s << "Especie: " << especie << "\n";
+	s << "Dueño: " << dueno->getNombre() << "\n";
+	return s.str();
 }
-
-void Mascota::setNombre(string nuevoNombre)
-{
-	nombre = nuevoNombre;
-
-}
-
-void Mascota::setEspecie(string nuevaEspecie)
-{
-	especie = nuevaEspecie;
-}
-
 
 

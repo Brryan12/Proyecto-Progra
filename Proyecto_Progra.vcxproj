@@ -152,6 +152,7 @@
     <ClInclude Include="Doctor.h" />
     <ClInclude Include="Dueno.h" />
     <ClInclude Include="Especialidad.h" />
+    <ClInclude Include="Include.h" />
     <ClInclude Include="Interfaz.h" />
     <ClInclude Include="Mascota.h" />
   </ItemGroup>

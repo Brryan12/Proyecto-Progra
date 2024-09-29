@@ -2,12 +2,10 @@
 
 Doctor::Doctor(string nombre, string cedula, Especialidad* especialidad) : nombre(nombre), cedula(cedula), especialidad(especialidad)
 {
-//	this->agenda = new Agenda();
 }
 
 Doctor::~Doctor()
 {
-	//delete agenda;
 }
 
 string Doctor::getNombre()
@@ -24,11 +22,6 @@ Especialidad* Doctor::getEspecialidad()
 {
 	return especialidad;
 }
-
-//Agenda* Doctor::getAgenda()
-//{
-//	return agenda;
-//}
 
 void Doctor::setNombre(string nombre)
 {

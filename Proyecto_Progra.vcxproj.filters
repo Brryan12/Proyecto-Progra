@@ -92,6 +92,9 @@
     <ClInclude Include="Agenda.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Include.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="proyecto 1 (Hospital Veterinario) (15-08-24) .pdf">

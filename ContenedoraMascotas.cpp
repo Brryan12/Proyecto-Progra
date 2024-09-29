@@ -31,7 +31,7 @@ int ContenedoraMascotas::getCantidad()
 }
 Mascota* ContenedoraMascotas::getMascota(int posicion) {
 	if (posicion >= 0 && posicion < cantidad) {
-		return mascotas[posicion];
+		return mascotas[posicion-1];
 	}
 	return nullptr; // Manejar caso de índice inválido
 
@@ -52,7 +52,7 @@ Mascota* ContenedoraMascotas::getMascota(int posicion) {
 	}
 }
 
- string ContenedoraMascotas::toString(string cedula) const {
+ string ContenedoraMascotas::MascotasPorDueno(string cedula) const {
 	stringstream s;
 	bool encontrado = false;
 
@@ -66,7 +66,7 @@ Mascota* ContenedoraMascotas::getMascota(int posicion) {
 				cout << "\nMascotas registradas por el dueño: " << mascotas[i]->getDueno()->toString() << endl;
 				encontrado = true;
 			}
-			cout << i<<"Nombre: " << mascotas[i]->getNombre()
+			cout << i+1<<" Nombre: " << mascotas[i]->getNombre()
 				<< ", Especie: " << mascotas[i]->getEspecie()
 				<< endl;
 		}
@@ -77,4 +77,25 @@ Mascota* ContenedoraMascotas::getMascota(int posicion) {
 
 	return s.str();
 }
+
+ string ContenedoraMascotas::MascotasOrdenadas(ContenedoraDueno* duenos) const {
+	 stringstream s;
+
+	 // Recorremos los dueños
+	 for (int i = 0; i < duenos->getCant(); i++) {
+		 Dueno* duenoActual = duenos->getDuenoPos(i);
+		 s << "Dueno: " << duenoActual->getNombre() << endl;
+
+		 // Recorremos las mascotas
+		 for (int j = 0; j < cantidad; j++) {
+			 if (mascotas[j]->getDueno() == duenoActual) {
+				 s << "Mascota: " << mascotas[j]->getNombre() << endl;
+				 s << "Especie: " << mascotas[j]->getEspecie() << endl;
+				 s << endl;
+			 }
+		 }
+	 }
+	 return s.str();
+ }
+
 

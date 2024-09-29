@@ -1,125 +1,458 @@
-#include <iostream>
-#include "ContenedoraEspecialidades.h"
-#include "Especialidad.h"	
-#include "Doctor.h"
-#include <sstream>
-#include "ContenedoraDoctores.h"
-#include "ContenedoraMascotas.h"
-#include "ContenedoraDueno.h"
-#include "ContenedoraCitasDia.h"
-#include "Agenda.h"
-
+#include "Interfaz.h"
 
 int main()
 {
-	ContenedoraEspecialidades* contenedoraEspecialidades = new ContenedoraEspecialidades(10);
-	Especialidad* especialidad1 = new Especialidad("Cardiologia", "Especialidad que se encarga de los problemas del corazon");
-	Especialidad* especialidad2 = new Especialidad("Oftalmologia", "Especialidad que se encarga de los problemas de los ojos");
-	Especialidad* especialidad3 = new Especialidad("Dermatologia", "Especialidad que se encarga de los problemas de la piel");
-	contenedoraEspecialidades->agregarEspecialidad(especialidad1);
-	contenedoraEspecialidades->agregarEspecialidad(especialidad2);
-	contenedoraEspecialidades->agregarEspecialidad(especialidad3);
-	//cout << "Ingrese doctor" << endl;
-	//cout << "Ingrese nombre: ";
-	//string nombre;
-	//cin >> nombre;
-	//cout << "Ingrese cedula: ";
-	//string cedula;
-	//cin >> cedula;
-	//cout << "Lista de especialidades: " << endl;
-	//cout << contenedoraEspecialidades->toString();
-	//cout << "ingrese el numero de especialidad: ";
-	//int especialidad;
-	//cin >> especialidad;
-	//Especialidad* especialidadDoctor = nullptr;
-	//especialidadDoctor = contenedoraEspecialidades->getEspecialidad(especialidad - 1);
-	//Doctor* doctor = new Doctor(nombre, cedula, especialidadDoctor);
-	//cout << doctor;
-	Doctor* doctor1 = new Doctor("Juan", "123", contenedoraEspecialidades->getEspecialidad(0));
-	Doctor* doctor2 = new Doctor("Pedro", "456", contenedoraEspecialidades->getEspecialidad(1));
-	Doctor* doctor3 = new Doctor("Maria", "789", contenedoraEspecialidades->getEspecialidad(0));
-	Doctor* doctor4 = new Doctor("Jose", "101", contenedoraEspecialidades->getEspecialidad(0));
-	Doctor* doctor5 = new Doctor("Ana", "112", contenedoraEspecialidades->getEspecialidad(1));
-	Doctor* doctor6 = new Doctor("Luis ", "131", contenedoraEspecialidades->getEspecialidad(0));
-	ContenedoraDoctores* contenedoraDoctores = new ContenedoraDoctores(10);
-	contenedoraDoctores->agregarDoctor(doctor1);
-	contenedoraDoctores->agregarDoctor(doctor2);
-	contenedoraDoctores->agregarDoctor(doctor3);
-	contenedoraDoctores->agregarDoctor(doctor4);
-	contenedoraDoctores->agregarDoctor(doctor5);
-	contenedoraDoctores->agregarDoctor(doctor6);
-	//cout << contenedoraDoctores->toString();
-	//cout << "Ingrese especialidad: ";
-	//string nombre;
-	//cin >> nombre;
-	//if (contenedoraEspecialidades->yaExiste(nombre)) {
-	//	cout<<contenedoraDoctores->toString(nombre);
-	//}
-	//else {
-	//	cout << "No existe la especialidad" << endl;
-	//}
-	cout << "Doctores ordenados por especialidad: " << endl;
-	cout << contenedoraEspecialidades->imprimirDoctoresOrdenados(contenedoraDoctores);
-	int hora = 1;	
-	string horaStr = to_string(hora) + ":00";
-	cout << horaStr << endl;
+    int op;
+    int op1;
+    int op2;
+    int op3;
+    int tamE;
+    int tamDoc;
+    int tamDueno;
+    int tamM;
+    int pos;
+    int dia;
+    int hora;
+    string cedula;
+    string nombre;
+    string descripcion;
+    string especie;
+    ContenedoraDoctores* doctores = nullptr;
+    Doctor* doctorPtr = nullptr;
+    ContenedoraDueno* duenos = nullptr;
+    Agenda* agenda = nullptr;
+    Dueno* duenoPtr = nullptr;
+    ContenedoraMascotas* mascotas = nullptr;
+    Mascota* mascotaPtr = nullptr;
+    ContenedoraEspecialidades* especialidades = nullptr;
+    Especialidad* especialidadPtr = nullptr;
+	tamE = Interfaz::getTamEspecialidades();
+	especialidades = Interfaz::crearContenedoraEspecialidades();
+	tamDoc = Interfaz::getTamDoctores();
+	doctores = Interfaz::crearContenedoraDoctores();
+    agenda = new Agenda(tamDoc);
+	tamDueno = Interfaz::getTamDuenos();
+	duenos = Interfaz::crearContenedoraDuenos();
+	tamM = Interfaz::getTamMascotas();
+	mascotas = Interfaz::crearContenedoraMascotas();
 
-	Dueno* dueno1 = new Dueno("Juan", "123");
-	Dueno* dueno2 = new Dueno("Pedro", "456");
-	Dueno* dueno3 = new Dueno("Maria", "789");
-	Dueno* dueno4 = new Dueno("Jose", "101");
-	Mascota* mascota1 = new Mascota("Firulais", "Perro", dueno1);
-	Mascota* mascota2 = new Mascota("Mishi", "Gato", dueno2);
-	Mascota* mascota3 = new Mascota("Piolin", "Canario", dueno3);
-	Mascota* mascota4 = new Mascota("Rex", "Perro", dueno4);
-	Mascota* mascota5 = new Mascota("Garfield", "Gato", dueno1);
-	ContenedoraMascotas* contenedoraMascotas = new ContenedoraMascotas(10);
-	contenedoraMascotas->agregarMascota(mascota1);
-	contenedoraMascotas->agregarMascota(mascota2);
-	contenedoraMascotas->agregarMascota(mascota3);
-	contenedoraMascotas->agregarMascota(mascota4);
-	contenedoraMascotas->agregarMascota(mascota5);
-	cout << contenedoraMascotas->toString("123");
-	cout << contenedoraEspecialidades->toString("Dermatologia", contenedoraDoctores);
-	Doctor *doctor7 = new Doctor("Juan", "457545", contenedoraEspecialidades->getEspecialidad(2));
-	Doctor *doctor8= new Doctor("Pedro", "54567", contenedoraEspecialidades->getEspecialidad(2));
-	contenedoraDoctores->agregarDoctor(doctor7);
-	contenedoraDoctores->agregarDoctor(doctor8);
-	cout << contenedoraEspecialidades->toString("Dermatologia", contenedoraDoctores);
+    do {
+		op = Interfaz::menuPrincipal();
 
-	ContenedoraCitasDia* contenedoraCitasDia = new ContenedoraCitasDia();
-	Agenda* agenda = new Agenda();
-	if (agenda->agregarCita(1,8, doctor1, mascota1)) {
-		cout << "jiji" << endl;
-	}
-	if (agenda->agregarCita(0,8, doctor1, mascota1)) {
-		cout << "jiji" << endl;
-	}
-	else {
-		cout << "jaja" << endl;
-	}
-	if (agenda->agregarCita(1,9, doctor1, mascota1)) {
-		cout << "jiji" << endl;
-	}
-	else {
-		cout << "jaja" << endl;
-	}
-	if (agenda->agregarCita(2, 13, doctor1, mascota1)) {
-		cout << "jiji" << endl;
-	}
-	else {
-		cout << "jaja" << endl;
-	}
-	
-	cout<<agenda->toString("123", contenedoraDoctores);
-	cout << agenda->toString("123", contenedoraMascotas);
-	cout << agenda->mostrarPacientesPorDoctor("123", contenedoraDoctores);
+        switch (op) {
+        case 1:
+            do
+            {
+				op1 = Interfaz::menuAdministracion();
+                switch (op1)
+                {
+                case 1:
+                    system("cls");
+                    cout << "(1) Ingresar Especialidades" << endl;
+                    if (especialidades->getCant() == tamE) {
+                        cout << "Ya no puede ingresar más especialidades, esta lleno"<<endl;
+                        system("pause");
+                        break;
+                    }
+                    for (int i = 0; i < tamE; i++) {
+                        cin.ignore();
+                        cout << "Ingrese el nombre de la especialidad " << i + 1 << ": ";
+                        getline(cin, nombre);
 
+                        cout << "Ingrese una descripcion de la especialidad: ";
+                        getline(cin, descripcion);
 
-	delete agenda;
-	delete contenedoraEspecialidades;
-		return 0;
+                        especialidadPtr = new Especialidad(nombre, descripcion);
+                        if (especialidades->agregarEspecialidad(especialidadPtr))
+                            cout << "Especialidad agregada correctamente" << endl;
+                        else {
+                            cout << "Error al agregar la especialidad" << endl;
+                            system("pause");
+                            break;
+                        }
+                        endl(cout);
+                    }
+                    cout << especialidades->toString();
+                    system("pause");
+
+                    break;
+                case 2:
+                    system("cls");
+                    cout << "(2) Ingresar Doctor(por especialidad)" << endl;
+                    if (doctores->getCant() == tamDoc) {
+                        cout << "Ya no puede ingresar más doctores, esta lleno"<<endl;
+                        system("pause");
+                        break;
+                    }
+                    if (especialidades->getCant() == 0) {
+                        cout << "Error: No hay especialidades ingresadas"<<endl;
+                        system("pause");
+                            break;
+                    }
+                    cout << especialidades->toString() << endl;
+                    cout << "Elija la especialidad del doctor: " << endl; cin >> pos;
+					if (especialidades->getEspecialidad(pos) == nullptr)
+					{
+						cout << "Error: No hay especialidades con el numero ingresado" << endl;
+                        system("pause");
+						break;
+					}
+                    especialidadPtr = especialidades->getEspecialidad(pos);
+                    cin.ignore();
+                    cout << "Ingrese el nombre del doctor: "; getline(cin, nombre);
+                    cout << "Nombre ingresado: " << nombre << endl; // Depuración
+                    cout << "Ingrese la cedula del doctor: "; getline(cin, cedula);
+                    cout << "Cédula ingresada: " << cedula << endl; // Depuración
+                    if (doctores->existeDoctor(cedula)) {
+                        cout << "Ya existe un doctor con esa cedula";
+                        system("pause");
+                        break;
+                    }
+                    doctorPtr = new Doctor(nombre, cedula, especialidadPtr);
+                    if (doctores->agregarDoctor(doctorPtr))
+                        cout << "Doctor agregado correctamente" << endl;
+                    else {
+                        cout << "Error al agregar el doctor" << endl;
+                        system("pause");
+                        break;
+                    }
+                    system("pause");
+                    break;
+                case 3:
+                    system("cls");
+                    cout << "(3) Ingresar Dueño" << endl;
+                    if (duenos->getCant() == tamDueno) {
+                        cout << "Ya no puede ingresar más duenos, esta lleno"<<endl;
+                        system("pause");
+                        break;
+                    }
+                    cin.ignore();
+                    cout << "Ingrese el nombre del dueño: "; getline(cin, nombre);
+                    cout << "Ingrese la cedula del dueño: "; getline(cin, cedula);
+                    if (duenos->existeDueno(cedula)) {
+                        cout << "Ya existe un dueño con esa cedula" << endl;
+                        system("pause");
+                        break;
+                    }
+                    duenoPtr = new Dueno(nombre, cedula);
+                    if (duenos->agregarDueno(duenoPtr))
+                        cout << "Dueño agregado correctamente" << endl;
+                    else {
+                        cout << "Error al agregar el dueño" << endl;
+                        system("pause");
+                    }
+                    break;
+                case 4:
+                    system("cls");
+                    cout << "(4) Ingresar Mascota(por dueño)" << endl;
+                    if (mascotas->getCantidad() == tamM) {
+                        cout << "Ya no puede ingresar más mascotas, esta lleno"<<endl;
+                        system("pause");
+                        break;
+                    }
+					if (duenos->getCant() == 0) {
+						cout << "Error: No hay dueños ingresados" << endl;
+                        system("pause");
+						break;
+					}
+                    cout << duenos->toString() << endl;
+                    cout << "Elija la cedula del dueño de la mascota: "; getline(cin, cedula);
+					if (duenos->getDueno(cedula) == nullptr)
+					{
+						cout << "Error: No hay dueños con la cedula ingresada: " << cedula << endl;
+                        system("pause");
+						break;
+					}
+                    duenoPtr = duenos->getDueno(cedula);
+                    cout << "Ingrese el nombre de la mascota: "; getline(cin, nombre);
+                    cout << "Ingrese la especia de la mascota: "; getline(cin, especie);
+                    mascotaPtr = new Mascota(nombre, especie, duenoPtr);
+                    if (mascotas->agregarMascota(mascotaPtr))
+                        cout << "Mascota agregada correctamente" << endl;
+                    else
+                        cout << "Error al agregar la mascota" << endl;
+                    system("pause");
+
+                    break;
+                case 0:
+                    system("cls");
+                    cout << "Regresando al Menú Principal..." << endl;
+                    system("pause");
+
+                    break;
+                default:
+                    system("cls");
+                    cout << "Opción no válida. Intente de nuevo." << endl;
+                    system("pause");
+
+                    break;
+                }
+            } while (op1 != 0);
+            break;
+        case 2:
+            do
+            {
+                system("cls");
+                endl(cout);
+                cout << "----Submenú Control Citas----" << endl;
+                cout << "(1) Sacar Cita" << endl;
+                cout << "(2) Cancelar Cita" << endl;
+                cout << "(3) Mostrar Calendario de Citas por Doctor" << endl;
+                cout << "(4) Mostrar Citas por Dueño" << endl;
+                cout << "(0) Regresar al Menú Principal" << endl;
+                cout << "Seleccione una opción: "; cin >> op2;
+                switch (op2)
+                {
+                case 1:
+                    system("cls");
+                    cout << "(1) Sacar Cita" << endl;
+                    cout << "Ingrese el dia de la cita: "; cin >> dia;
+                    cout << "Ingrese la hora de la cita: "; cin >> hora;
+                    if (especialidades->getCant() == 0) {
+                        cout << "No hay especialidades agregadas" << endl;
+                        system("pause");
+                        break;
+                    }
+                    cout << especialidades->toString() << endl;
+                    cout << "Ingrese el numero de la especialidad del doctor: " << endl;
+                    cin >> pos;
+                    if (especialidades->getEspecialidad(pos) == nullptr)
+                    {
+                        cout << "Error: No hay especialidades con el numero ingresado" << endl;
+                        system("pause");
+                        break;
+                    }
+                    especialidadPtr = especialidades->getEspecialidad(pos);
+                    cout << especialidades->DoctorPorEspecialidad(especialidadPtr->getNombre(), doctores);
+                    if (doctores->getCant() == 0) {
+                        cout << "No hay doctores ingresados";
+                        system("pause");
+                        break;
+                    }
+                    cout << "Ingrese la cedula del doctor: " << endl;
+                    cin.ignore();
+                    getline(cin, cedula);
+                    if (!doctores->existeDoctor(cedula)) {
+                        cout << "No existe doctor con esa cedula" << endl;
+                        system("pause");
+                        break;
+                    }
+                    doctorPtr = doctores->getDoctor(cedula);
+                    cout << "Ingrese la cedula del dueño de la mascota: " << endl;
+                    getline(cin, cedula);
+                    if (mascotas->MascotasPorDueno(cedula) == "No hay mascotas registradas" || mascotas->MascotasPorDueno(cedula) == "Error: No hay dueños con la cédula ingresada: " + cedula)
+                    {
+                        cout << "No hay mascotas registradas o la cedula esta incorrecta" << endl;
+                        system("pause");
+                        break;
+                    }
+                    cout << mascotas->MascotasPorDueno(cedula);
+                    cout << "Ingrese el numero de la mascota: "; cin >> pos;
+                    if (mascotas->getMascota(pos) == nullptr)
+                    {
+                        cout << "Error: No hay mascotas con el numero ingresado" << endl;
+                        system("pause");
+                        break;
+                    }
+                    mascotaPtr = mascotas->getMascota(pos);
+                    if (agenda->agregarCita(dia, hora, doctorPtr, mascotaPtr))
+                        cout << "Cita agregada correctamente" << endl;
+                    else
+                        cout << "Error al agregar la cita" << endl;
+
+                    system("pause");
+
+                    break;
+                case 2:
+                    system("cls");
+                    cout << "(2) Cancelar Cita" << endl;
+                    cout << "Ingrese el dia de la cita a cancelar: "; cin >> dia;
+                    cout << "Ingrese la hora de la cita a cancelar: "; cin >> hora;
+                    cin.ignore();
+                    if (doctores->getCant() == 0) {
+                        cout << "No hay doctores ingresados";
+                        system("pause");
+                        break;
+                    }
+                    cout << "Ingrese la cedula del doctor con el que tiene la cita: ";
+                    getline(cin, cedula);
+                    if (doctores->getDoctor(cedula) == nullptr)
+                    {
+                        cout << "Error: No hay doctores con la cedula ingresada: " << cedula << endl;
+                        system("pause");
+                        break;
+                    }
+                    doctorPtr = doctores->getDoctor(cedula);
+                    cout << "Ingrese la cedula del dueño: ";
+                    getline(cin, cedula);
+                    if (mascotas->MascotasPorDueno(cedula) == "No hay mascotas registradas" || mascotas->MascotasPorDueno(cedula) == "Error: No hay dueños con la cédula ingresada: " + cedula)
+                    {
+                        cout << "No hay mascotas registradas o la cedula esta incorrecta" << endl;
+                        system("pause");
+                        break;
+                    }
+                    cout << mascotas->MascotasPorDueno(cedula);
+                    cout << "Ingrese el numero de la mascota: "; cin >> pos;
+                    cin.ignore();
+                    if (mascotas->getMascota(pos) == nullptr) {
+                        cout << "Error no hay mascotas con ese numero" << endl;
+                        system("pause");
+                        break;
+                    }
+                    mascotaPtr = mascotas->getMascota(pos);
+                    if (agenda->cancelarCita(dia, hora, doctorPtr, mascotaPtr))
+                        cout << "Cita cancelada correctamente" << endl;
+                    else
+                        cout << "Error al cancelar la cita" << endl;
+                    system("pause");
+
+                    break;
+                case 3:
+                    system("cls");
+                    cout << "(3) Mostrar Calendario de Citas por Doctor" << endl;
+                    cin.ignore();
+                    if (doctores->getCant() == 0) {
+                        cout << "No hay doctores ingresados";
+                        system("pause");
+                        break;
+                    }
+                    cout << "Ingrese la cedula del doctor para ver su agenda: "; getline(cin, cedula);
+                    if (doctores->getDoctor(cedula) != nullptr)
+                        cout << agenda->toString(cedula, doctores);
+                    else
+                        cout << "Error: No hay doctores con la cedula ingresada: " << cedula << endl;
+                    system("pause");
+                    break;
+                case 4:
+                    system("cls");
+                    cout << "(4) Mostrar Citas por Dueño" << endl;
+                    cin.ignore();
+                    if (duenos->getCant() == 0) {
+                        cout << "No hay duenos ingresados";
+                        system("pause");
+                        break;
+                    }
+                    cout << "Ingrese la cedula del dueño para ver sus citas: "; getline(cin, cedula);
+                    if (mascotas->MascotasPorDueno(cedula) == "No hay mascotas registradas" || mascotas->MascotasPorDueno(cedula) == "Error: No hay dueños con la cédula ingresada: " + cedula)
+                    {
+                        cout << "No hay mascotas registradas o la cedula esta incorrecta" << endl;
+                        system("pause");
+                        break;
+                    }
+                    cout << agenda->mostrarCitasPorDueno(cedula, mascotas);
+                    system("pause");
+
+                    break;
+                case 0:
+                    system("cls");
+                    cout << "Regresando al Menú Principal..." << endl;
+                    system("pause");
+
+                    break;
+                default:
+                    system("cls");
+                    cout << "Opción no válida. Intente de nuevo." << endl;
+                    system("pause");
+
+                    break;
+                }
+            } while (op2 != 0);
+            break;
+        case 3:
+            do
+            {
+                system("cls");
+                endl(cout);
+                cout << "----Submenú Control Citas----" << endl;
+                cout << "(1) Mostrar Listado de Especialidades" << endl;
+                cout << "(2) Mostrar Listado de Doctores por Especialidad" << endl;
+                cout << "(3) Mostrar Dueños con sus Mascotas" << endl;
+                cout << "(4) Mostrar Pacientes por Doctor" << endl;
+                cout << "(0) Regresar al Menú Principal" << endl;
+                cout << "Seleccione una opción: "; cin >> op3;
+                switch (op3)
+                {
+                case 1:
+                    system("cls");
+                    cout << "(1) Mostrar Listado de Especialidades" << endl;
+                    if (especialidades->getCant() > 0 && doctores->getCant()>0) {
+                        cout << especialidades->toString();
+                    }
+                    else
+                        cout << "No hay especialidades registradas o no hay doctores registrados" << endl;
+                    system("pause");
+
+                    break;
+                case 2:
+                    system("cls");
+                    cout << "(2) Mostrar Listado de Doctores por Especialidad " << endl;
+                    if (especialidades->getCant() > 0)
+                        cout << especialidades->imprimirDoctoresOrdenados(doctores);
+                    else
+                        cout << "No hay especialidades registradas" << endl;
+                    system("pause");
+
+                    break;
+                case 3:
+                    system("cls");
+                    cout << "(3) Mostrar Dueños con sus Mascotas" << endl;
+                    if (duenos->getCant() > 0)
+                        cout << mascotas->MascotasOrdenadas(duenos);
+					else
+						cout << "No hay dueños registrados" << endl;
+                    system("pause");
+
+                    break;
+                case 4:
+                    system("cls");
+                    cout << "(4) Mostrar Pacientes por Doctor" << endl;
+					if (doctores->getCant() == 0) {
+						cout << "No hay doctores registrados en el sistema." << endl;
+						system("pause");
+						break;
+					}
+					cout << "Doctores: " << endl;
+                    cin.ignore();
+					cout << doctores->toString();
+					cout << "Ingrese la cedula del doctor para ver sus pacientes: "; getline(cin, cedula);
+					agenda->mostrarPacientesPorDoctor(cedula,doctores);
+                    system("pause");
+                    break;
+                case 0:
+                    system("cls");
+                    cout << "Regresando al Menú Principal..." << endl;
+                    system("pause");
+
+                    break;
+                default:
+                    system("cls");
+                    cout << "Opción no válida. Intente de nuevo." << endl;
+                    system("pause");
+
+                    break;
+                }
+            } while (op3 != 0);
+            break;
+        case 4:
+            // Salir del programa
+            cout << "Saliendo del programa..." << endl;
+            system("pause");
+
+            break;
+        default:
+            cout << "Opción no válida. Intente de nuevo." << endl;
+            system("pause");
+
+            break;
+        }
+    } while (op != 4);
+
+    // Liberar memoria
+    delete agenda;
+    delete especialidades;
+    delete doctores;
+    delete duenos;
+    delete mascotas;
+
+    return 0;
 }
-
-
-

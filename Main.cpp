@@ -6,10 +6,6 @@ int main()
     int op1;
     int op2;
     int op3;
-    int tamE;
-    int tamDoc;
-    int tamDueno;
-    int tamM;
     int pos;
     int dia;
     int hora;
@@ -26,15 +22,15 @@ int main()
     Mascota* mascotaPtr = nullptr;
     ContenedoraEspecialidades* especialidades = nullptr;
     Especialidad* especialidadPtr = nullptr;
-	tamE = Interfaz::getTamEspecialidades();
-	especialidades = Interfaz::crearContenedoraEspecialidades();
-	tamDoc = Interfaz::getTamDoctores();
-	doctores = Interfaz::crearContenedoraDoctores();
+	int tamE = Interfaz::getTamEspecialidades();
+	especialidades = Interfaz::crearContenedoraEspecialidades(tamE);
+	int tamDoc = Interfaz::getTamDoctores();
+	doctores = Interfaz::crearContenedoraDoctores(tamDoc);
     agenda = new Agenda(tamDoc);
-	tamDueno = Interfaz::getTamDuenos();
-	duenos = Interfaz::crearContenedoraDuenos();
-	tamM = Interfaz::getTamMascotas();
-	mascotas = Interfaz::crearContenedoraMascotas();
+	int tamDueno = Interfaz::getTamDuenos();
+	duenos = Interfaz::crearContenedoraDuenos(tamDueno);
+	int tamM = Interfaz::getTamMascotas();
+	mascotas = Interfaz::crearContenedoraMascotas(tamM);
 
     do {
 		op = Interfaz::menuPrincipal();
@@ -58,10 +54,19 @@ int main()
                         cin.ignore();
                         cout << "Ingrese el nombre de la especialidad " << i + 1 << ": ";
                         getline(cin, nombre);
+                        if (nombre.empty()) {
+                            cout << "Error: no ingreso un nombre" << endl;
+                            system("pause");
+                            break;
+                        }
 
                         cout << "Ingrese una descripcion de la especialidad: ";
                         getline(cin, descripcion);
-
+                        if (descripcion.empty()) {
+                            cout << "Error: no ingreso una descripcion" << endl;
+                            system("pause");
+                            break;
+                        }
                         especialidadPtr = new Especialidad(nombre, descripcion);
                         if (especialidades->agregarEspecialidad(especialidadPtr))
                             cout << "Especialidad agregada correctamente" << endl;
@@ -100,8 +105,18 @@ int main()
                     especialidadPtr = especialidades->getEspecialidad(pos);
                     cin.ignore();
                     cout << "Ingrese el nombre del doctor: "; getline(cin, nombre);
+                    if (nombre.empty()) {
+                        cout << "Error: no ingreso un nombre" << endl;
+                        system("pause");
+                        break;
+                    }
                     cout << "Nombre ingresado: " << nombre << endl; // Depuración
                     cout << "Ingrese la cedula del doctor: "; getline(cin, cedula);
+                    if (cedula.empty()) {
+                        cout << "Error: no ingreso una cedula" << endl;
+                        system("pause");
+                        break;
+                    }
                     cout << "Cédula ingresada: " << cedula << endl; // Depuración
                     if (doctores->existeDoctor(cedula)) {
                         cout << "Ya existe un doctor con esa cedula";
@@ -128,7 +143,17 @@ int main()
                     }
                     cin.ignore();
                     cout << "Ingrese el nombre del dueño: "; getline(cin, nombre);
+                    if (nombre.empty()) {
+                        cout << "Error: no ingreso un nombre" << endl;
+                        system("pause");
+                        break;
+                    }
                     cout << "Ingrese la cedula del dueño: "; getline(cin, cedula);
+                    if (cedula.empty()) {
+                        cout << "Error: no ingreso una cedula" << endl;
+                        system("pause");
+                        break;
+                    }
                     if (duenos->existeDueno(cedula)) {
                         cout << "Ya existe un dueño con esa cedula" << endl;
                         system("pause");
@@ -157,6 +182,11 @@ int main()
 					}
                     cout << duenos->toString() << endl;
                     cout << "Elija la cedula del dueño de la mascota: "; getline(cin, cedula);
+                    if (cedula.empty()) {
+                        cout << "Error: no ingreso una cedula" << endl;
+                        system("pause");
+                        break;
+                    }
 					if (duenos->getDueno(cedula) == nullptr)
 					{
 						cout << "Error: No hay dueños con la cedula ingresada: " << cedula << endl;
@@ -165,7 +195,17 @@ int main()
 					}
                     duenoPtr = duenos->getDueno(cedula);
                     cout << "Ingrese el nombre de la mascota: "; getline(cin, nombre);
+                    if (nombre.empty()) {
+                        cout << "Error: no ingreso un nombre" << endl;
+                        system("pause");
+                        break;
+                    }
                     cout << "Ingrese la especia de la mascota: "; getline(cin, especie);
+                    if (especie.empty()) {
+                        cout << "Error: no ingreso una especie" << endl;
+                        system("pause");
+                        break;
+                    }
                     mascotaPtr = new Mascota(nombre, especie, duenoPtr);
                     if (mascotas->agregarMascota(mascotaPtr))
                         cout << "Mascota agregada correctamente" << endl;
@@ -232,6 +272,11 @@ int main()
                     cout << "Ingrese la cedula del doctor: " << endl;
                     cin.ignore();
                     getline(cin, cedula);
+                    if (cedula.empty()) {
+                        cout << "Error: no ingreso una cedula" << endl;
+                        system("pause");
+                        break;
+                    }
                     if (!doctores->existeDoctor(cedula)) {
                         cout << "No existe doctor con esa cedula" << endl;
                         system("pause");
@@ -240,6 +285,11 @@ int main()
                     doctorPtr = doctores->getDoctor(cedula);
                     cout << "Ingrese la cedula del dueño de la mascota: " << endl;
                     getline(cin, cedula);
+                    if (cedula.empty()) {
+                        cout << "Error: no ingreso una cedula" << endl;
+                        system("pause");
+                        break;
+                    }
                     if (mascotas->MascotasPorDueno(cedula) == "No hay mascotas registradas" || mascotas->MascotasPorDueno(cedula) == "Error: No hay dueños con la cédula ingresada: " + cedula)
                     {
                         cout << "No hay mascotas registradas o la cedula esta incorrecta" << endl;
@@ -276,6 +326,11 @@ int main()
                     }
                     cout << "Ingrese la cedula del doctor con el que tiene la cita: ";
                     getline(cin, cedula);
+                    if (cedula.empty()) {
+                        cout << "Error: no ingreso una cedula" << endl;
+                        system("pause");
+                        break;
+                    }
                     if (doctores->getDoctor(cedula) == nullptr)
                     {
                         cout << "Error: No hay doctores con la cedula ingresada: " << cedula << endl;
@@ -285,6 +340,11 @@ int main()
                     doctorPtr = doctores->getDoctor(cedula);
                     cout << "Ingrese la cedula del dueño: ";
                     getline(cin, cedula);
+                    if (cedula.empty()) {
+                        cout << "Error: no ingreso una cedula" << endl;
+                        system("pause");
+                        break;
+                    }
                     if (mascotas->MascotasPorDueno(cedula) == "No hay mascotas registradas" || mascotas->MascotasPorDueno(cedula) == "Error: No hay dueños con la cédula ingresada: " + cedula)
                     {
                         cout << "No hay mascotas registradas o la cedula esta incorrecta" << endl;
@@ -317,6 +377,11 @@ int main()
                         break;
                     }
                     cout << "Ingrese la cedula del doctor para ver su agenda: "; getline(cin, cedula);
+                    if (cedula.empty()) {
+                        cout << "Error: no ingreso una cedula" << endl;
+                        system("pause");
+                        break;
+                    }
                     if (doctores->getDoctor(cedula) != nullptr)
                         cout << agenda->toString(cedula, doctores);
                     else
@@ -333,6 +398,11 @@ int main()
                         break;
                     }
                     cout << "Ingrese la cedula del dueño para ver sus citas: "; getline(cin, cedula);
+                    if (cedula.empty()) {
+                        cout << "Error: no ingreso una cedula" << endl;
+                        system("pause");
+                        break;
+                    }
                     if (mascotas->MascotasPorDueno(cedula) == "No hay mascotas registradas" || mascotas->MascotasPorDueno(cedula) == "Error: No hay dueños con la cédula ingresada: " + cedula)
                     {
                         cout << "No hay mascotas registradas o la cedula esta incorrecta" << endl;
@@ -415,7 +485,12 @@ int main()
                     cin.ignore();
 					cout << doctores->toString();
 					cout << "Ingrese la cedula del doctor para ver sus pacientes: "; getline(cin, cedula);
-					agenda->mostrarPacientesPorDoctor(cedula,doctores);
+                    if (cedula.empty()) {
+                        cout << "Error: no ingreso una cedula" << endl;
+                        system("pause");
+                        break;
+                    }
+                    agenda->mostrarPacientesPorDoctor(cedula,doctores);
                     system("pause");
                     break;
                 case 0:

@@ -61,6 +61,7 @@ bool ContenedoraDueno::agregarDueno(Dueno* dueno) {
 		else
 			return false;
 	}
+	return false;
 }
 
 string ContenedoraDueno::toString() const

@@ -12,17 +12,15 @@ public:
 				cout << "La cantidad de especialidades debe ser mayor a 0" << endl;
 			}
 			else {
-				system("cls");
+				//system("cls");
 				break;
 			}
 		}
 		return tamE;
 	}
 
-	static ContenedoraEspecialidades* crearContenedoraEspecialidades() {
-		ContenedoraEspecialidades* especialidades = nullptr;
-		int tamE = getTamEspecialidades();
-		especialidades = new ContenedoraEspecialidades(tamE);
+	static ContenedoraEspecialidades* crearContenedoraEspecialidades(int tamE) {
+		ContenedoraEspecialidades* especialidades = new ContenedoraEspecialidades(tamE);
 
 		return especialidades;
 	}
@@ -36,17 +34,15 @@ public:
 				cout << "La cantidad de doctores debe ser mayor a 0" << endl;
 			}
 			else {
-				system("cls");
+				//system("cls");
 				break;
 			}
 		}
 		return tamDoc;
 	}
 
-	static ContenedoraDoctores* crearContenedoraDoctores() {
-		ContenedoraDoctores* doctores = nullptr;
-		int tamE = getTamEspecialidades();
-		doctores = new ContenedoraDoctores(tamE);
+	static ContenedoraDoctores* crearContenedoraDoctores(int tamDoc) {
+		ContenedoraDoctores* doctores = new ContenedoraDoctores(tamDoc);
 
 		return doctores;
 	}
@@ -60,17 +56,15 @@ public:
 				cout << "La cantidad de duenos debe ser mayor a 0" << endl;
 			}
 			else {
-				system("cls");
+				//system("cls");
 				break;
 			}
 		}
 		return tamDueno;
 	}
 
-	static ContenedoraDueno* crearContenedoraDuenos() {
-		ContenedoraDueno* duenos = nullptr;
-		int tamDuenos = getTamDuenos();
-		duenos = new ContenedoraDueno(tamDuenos);
+	static ContenedoraDueno* crearContenedoraDuenos(int tamDuenos) {
+		ContenedoraDueno* duenos = new ContenedoraDueno(tamDuenos);
 
 		return duenos;
 	}
@@ -84,18 +78,15 @@ public:
 				cout << "La cantidad de especialidades debe ser mayor a 0" << endl;
 			}
 			else {
-				system("cls");
+				//system("cls");
 				break;
 			}
 		}
 		return tamM;
 	}
 
-	static ContenedoraMascotas* crearContenedoraMascotas() {
-		ContenedoraMascotas* mascotas = nullptr;
-		int tamE = getTamEspecialidades();
-		mascotas = new ContenedoraMascotas(tamE);
-
+	static ContenedoraMascotas* crearContenedoraMascotas(int tamM) {
+		ContenedoraMascotas* mascotas = new ContenedoraMascotas(tamM);
 			return mascotas;
 	}
 

@@ -157,7 +157,6 @@
     <ClInclude Include="Mascota.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Notas.md" />
     <None Include="proyecto 1 (Hospital Veterinario) (15-08-24) .pdf" />
     <None Include="README.md" />
   </ItemGroup>

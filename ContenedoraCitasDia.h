@@ -47,6 +47,4 @@ public:
 	/// @brief Metodo para imprimir la informacion de la contenedora
 	/// @return retorna un string con la informacion de la contenedora
     string toString() const;
-    
-
 };

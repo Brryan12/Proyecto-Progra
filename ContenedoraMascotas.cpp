@@ -8,7 +8,6 @@ ContenedoraMascotas::ContenedoraMascotas(int tamano)
 	}
 }
 
-
 ContenedoraMascotas::~ContenedoraMascotas(){
 	for (int i = 0; i < cantidad; i++) {
 		delete mascotas[i];  
@@ -25,6 +24,7 @@ bool ContenedoraMascotas::agregarMascota(Mascota* mascota)
 	}
 	return false;
 }
+
 int ContenedoraMascotas::getCantidad()
 {
 	return cantidad;
@@ -98,5 +98,3 @@ Mascota* ContenedoraMascotas::getMascota(int posicion) {
 	 }
 	 return s.str();
  }
-
-

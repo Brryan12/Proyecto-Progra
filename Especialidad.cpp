@@ -8,7 +8,6 @@ Especialidad::~Especialidad()
 {
 }
 
-
 string Especialidad::getNombre()
 {
 	return nombre;
@@ -37,7 +36,3 @@ string Especialidad::toString()
 	
 	return s.str();
 }
-
-
-
-

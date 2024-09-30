@@ -468,12 +468,10 @@
 		 system(PAUSE);
 		 return;
 	 }
-
 	 cout << agenda->mostrarDias();
 	 cout << "Ingrese el dia de la cita a cancelar: "; cin >> dia;
 	 cout << "Ingrese la hora de la cita a cancelar: "; cin >> hora;
 	 cin.ignore();
-
 	 cout << "Ingrese la cedula del doctor con el que tiene la cita: ";
 	 getline(cin, cedula);
 	 if (cedula.empty()) {

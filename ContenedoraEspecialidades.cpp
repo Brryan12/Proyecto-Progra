@@ -38,6 +38,7 @@ string ContenedoraEspecialidades::convertirMinusculas(const string& cadena) {
 	}
 	return resultado;
 }
+
 bool ContenedoraEspecialidades::yaExiste(const string& nombre)
 {
 	string nombreMinuscula = convertirMinusculas(nombre);
@@ -49,7 +50,6 @@ bool ContenedoraEspecialidades::yaExiste(const string& nombre)
 
 	return false;
 }
-
 
 bool ContenedoraEspecialidades::agregarEspecialidad(Especialidad* nuevaEspecialidad)
 {

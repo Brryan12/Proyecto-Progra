@@ -49,7 +49,5 @@ public:
 	/// @param especialidad especialidad de los doctores a mostrar
 	/// @return retorna un string con los doctores de la especialidad
 	string toString(string especialidad) const;
-
-
 };
 

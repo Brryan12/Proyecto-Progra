@@ -24,7 +24,3 @@
         s << "Mascota: " << mascota->getNombre() << ", Hora: " << to_string(hora) + ":00, " << mascota->getDueno()->toString();
         return s.str();
     }
-
-
-
-

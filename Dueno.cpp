@@ -4,7 +4,6 @@ Dueno::Dueno(string nombre, string cedula) : nombre(nombre), cedula(cedula) {}
 
 Dueno::~Dueno()
 {
-
 }
 
 string Dueno::getNombre() const
@@ -27,12 +26,9 @@ void Dueno::setCedula(string cedula)
 	this->cedula = cedula;
 }
 
-
-
 string Dueno::toString()
 {
 	stringstream s;
 	s << "dueno: " << nombre << " - Cedula: " << cedula;
 	return s.str();
 }
-

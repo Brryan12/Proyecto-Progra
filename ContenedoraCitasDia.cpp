@@ -37,7 +37,6 @@ bool ContenedoraCitasDia::estaOcupado(int hora, Doctor* doctor) const {
     return false; 
 }
 
-
 bool ContenedoraCitasDia::agregarCita(int hora, Doctor* doctor, Mascota* mascota) {
     if (hora >= 8 && hora < 19 && cant < tam) {
         // Verificar si ya hay una cita para el mismo doctor a la misma hora
@@ -53,9 +52,6 @@ bool ContenedoraCitasDia::agregarCita(int hora, Doctor* doctor, Mascota* mascota
     }
     return false; // Hora fuera de rango o el día está lleno
 }
-
-
-
 
 bool ContenedoraCitasDia::cancelarCita(int hora, Doctor* doctor, Mascota* mascota) {
     for (int i = 0; i < cant; i++) {

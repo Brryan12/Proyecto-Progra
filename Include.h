@@ -126,5 +126,4 @@ void mostrarSwitch() {
     delete doctores;
     delete duenos;
     delete mascotas;
-
 }

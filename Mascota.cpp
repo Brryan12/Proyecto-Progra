@@ -30,5 +30,3 @@ string Mascota::toString() const
 	s << "dueno: " << dueno->getNombre() << "\n";
 	return s.str();
 }
-
-

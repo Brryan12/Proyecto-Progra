@@ -54,7 +54,6 @@ Doctor* ContenedoraDoctores::getDoctorPos(int posicion) {
     return nullptr; 
 }
 
-
 int ContenedoraDoctores::getCant()
 {
     return cant;

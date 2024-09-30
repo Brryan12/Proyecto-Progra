@@ -129,9 +129,6 @@ Agenda::~Agenda() {
 		return s.str();
 	}
 
-
-
-
 	string Agenda::mostrarPacientesPorDoctor(string cedula, ContenedoraDoctores* doctores) {
 		stringstream s;
 
@@ -148,9 +145,7 @@ Agenda::~Agenda() {
 			s << "No se encontró un doctor con la cédula: " << cedula << "\n";
 			return s.str();
 		}
-
 		s << "Pacientes del doctor: " << doctor->toString() << "\n";
-
 		// Iteramos sobre los días para buscar citas del doctor encontrado
 		for (int i = 0; i < 6; i++) { // Días de la semana
 			s << "Día " << dia[i] << ":\n";
@@ -164,10 +159,8 @@ Agenda::~Agenda() {
 				}
 			}
 		}
-
 		return s.str();
 	}
-
 	string Agenda::mostrarDias()
 	{
 		stringstream s;

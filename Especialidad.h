@@ -37,6 +37,5 @@ public:
 	/// @brief Metodo para imprimir la informacion de la especialidad
 	/// @return retorna un string con la informacion de la especialidad
 	string toString();
-
 };
 

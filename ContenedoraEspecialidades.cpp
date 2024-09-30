@@ -135,5 +135,3 @@ string ContenedoraEspecialidades::imprimirDoctoresOrdenados(ContenedoraDoctores*
 	}
 	return s.str();
 }
-
-

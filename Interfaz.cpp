@@ -598,6 +598,7 @@
  void Interfaz::mostrarDoctoresPorEspecialidad(ContenedoraEspecialidades* especialidades, ContenedoraDoctores* doctores)
  {
 	 system(CLEAR);
+
 	 cout << "(2) Mostrar Listado de Doctores por Especialidad " << endl;
 	 if (especialidades->getCant() > 0 && doctores->getCant() > 0)
 		 cout << especialidades->imprimirDoctoresOrdenados(doctores);

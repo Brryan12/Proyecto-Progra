@@ -10,7 +10,7 @@
 			cout << "La cantidad de especialidades debe ser mayor a 0" << endl;
 		}
 		else {
-			//system("cls");
+			//system(CLEAR);
 			break;
 		}
 	}
@@ -32,7 +32,7 @@
 			cout << "La cantidad de doctores debe ser mayor a 0" << endl;
 		}
 		else {
-			//system("cls");
+			//system(CLEAR);
 			break;
 		}
 	}
@@ -54,7 +54,7 @@
 			cout << "La cantidad de duenos debe ser mayor a 0" << endl;
 		}
 		else {
-			//system("cls");
+			//system(CLEAR);
 			break;
 		}
 	}
@@ -76,7 +76,7 @@
 			cout << "La cantidad de especialidades debe ser mayor a 0" << endl;
 		}
 		else {
-			//system("cls");
+			//system(CLEAR);
 			break;
 		}
 	}
@@ -90,21 +90,21 @@
 
  void Interfaz::defaultSwitch()
  {
-	 system("cls");
+	 system(CLEAR);
 	 cout << "Opción no válida. Intente de nuevo." << endl;
-	 system("pause");
+	 system(PAUSE);
  }
 
  void Interfaz::regresarPrincipal()
  {
-	 system("cls");
+	 system(CLEAR);
 	 cout << "Regresando al Menú Principal..." << endl;
-	 system("pause");
+	 system(PAUSE);
  }
 
  int Interfaz::menuPrincipal() {
 	int op;
-	system("cls");
+	system(CLEAR);
 	endl(cout);
 	cout << "----Menu Principal----" << endl;
 	cout << "1- Submenú Administración" << endl;
@@ -117,7 +117,7 @@
 }
  int Interfaz::menuAdministracion() {
 	int op1;
-	system("cls");
+	system(CLEAR);
 	endl(cout);
 	cout << "----Submenú Administración----" << endl;
 	cout << "(1) Ingresar Especialidades" << endl;
@@ -132,7 +132,7 @@
  int Interfaz::menuControlCitas()
  {
 	 int op2;
-	 system("cls");
+	 system(CLEAR);
 	 endl(cout);
 	 cout << "----Submenú Control Citas----" << endl;
 	 cout << "(1) Sacar Cita" << endl;
@@ -147,7 +147,7 @@
  int Interfaz::menuBusquedaYListados()
  {
 	 int op3;
-	 system("cls");
+	 system(CLEAR);
 	 endl(cout);
 	 cout << "----Submenú Control Citas----" << endl;
 	 cout << "(1) Mostrar Listado de Especialidades" << endl;
@@ -160,14 +160,14 @@
  }
 
  void Interfaz::agregarEspecialidades(ContenedoraEspecialidades* especialidades, int tamE) {
-	system("cls");
+	system(CLEAR);
 	string nombre, descripcion;
 	Especialidad* especialidadPtr = nullptr;
 	cout << "(1) Ingresar Especialidades" << endl;
 	for (int i = 0; i < tamE; i++) {
 		if (especialidades->getCant() == tamE) {
 			cout << "Ya no puede ingresar más especialidades, esta lleno" << endl;
-			system("pause");
+			system(PAUSE);
 			break;
 		}
 		cin.ignore();
@@ -175,7 +175,7 @@
 		getline(cin, nombre);
 		if (nombre.empty()) {
 			cout << "Error: no ingreso un nombre" << endl;
-			system("pause");
+			system(PAUSE);
 			break;
 		}
 
@@ -183,7 +183,7 @@
 		getline(cin, descripcion);
 		if (descripcion.empty()) {
 			cout << "Error: no ingreso una descripcion" << endl;
-			system("pause");
+			system(PAUSE);
 			break;
 		}
 		especialidadPtr = new Especialidad(nombre, descripcion);
@@ -191,13 +191,13 @@
 			cout << "Especialidad agregada correctamente" << endl;
 		else {
 			cout << "Error al agregar la especialidad" << endl;
-			system("pause");
+			system(PAUSE);
 			break;
 		}
 		endl(cout);
 	}
 	cout << especialidades->toString();
-	system("pause");
+	system(PAUSE);
 }
 	
  void Interfaz::agregarDoctores(ContenedoraDoctores* doctores, ContenedoraEspecialidades* especialidades, int tamDoc) {
@@ -206,16 +206,16 @@
 	int pos;
 	string cedula;
 	string nombre;
-	system("cls");
+	system(CLEAR);
 	cout << "(2) Ingresar Doctor(por especialidad)" << endl;
 	if (doctores->getCant() == tamDoc) {
 		cout << "Ya no puede ingresar más doctores, esta lleno" << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	if (especialidades->getCant() == 0) {
 		cout << "Error: No hay especialidades ingresadas" << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	cout << especialidades->toString() << endl;
@@ -223,7 +223,7 @@
 	if (especialidades->getEspecialidad(pos) == nullptr || pos == 0)
 	{
 		cout << "Error: No hay especialidades con el numero ingresado" << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	especialidadPtr = especialidades->getEspecialidad(pos);
@@ -232,20 +232,20 @@
 	cout << "Ingrese el nombre del doctor: "; getline(cin, nombre);
 	if (nombre.empty()) {
 		cout << "Error: no ingreso un nombre" << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	cout << "Nombre ingresado: " << nombre << endl;
 	cout << "Ingrese la cedula del doctor: "; getline(cin, cedula);
 	if (cedula.empty()) {
 		cout << "Error: no ingreso una cedula" << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	cout << "Cédula ingresada: " << cedula << endl;
 	if (doctores->existeDoctor(cedula)) {
 		cout << "Ya existe un doctor con esa cedula"<<endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	doctorPtr = new Doctor(nombre, cedula, especialidadPtr);
@@ -253,40 +253,40 @@
 		cout << "Doctor agregado correctamente" << endl;
 	else {
 		cout << "Error al agregar el doctor" << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
-	system("pause");
+	system(PAUSE);
 }
 
  void Interfaz::agregarDueno(ContenedoraDueno* duenos, int tamDueno) {
-	system("cls");
+	system(CLEAR);
 	string nombre;
 	string cedula;
 	Dueno* duenoPtr = nullptr;
 	cout << "(3) Ingresar dueno" << endl;
 	if (duenos->getCant() == tamDueno) {
 		cout << "Ya no puede ingresar más duenos, esta lleno" << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	cin.ignore();
 	cout << "Ingrese el nombre del dueno: "; getline(cin, nombre);
 	if (nombre.empty()) {
 		cout << "Error: no ingreso un nombre" << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	cin.ignore();
 	cout << "Ingrese la cedula del dueno: "; getline(cin, cedula);
 	if (cedula.empty()) {
 		cout << "Error: no ingreso una cedula" << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	if (duenos->existeDueno(cedula)) {
 		cout << "Ya existe un dueno con esa cedula" << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	duenoPtr = new Dueno(nombre, cedula);
@@ -294,13 +294,13 @@
 		cout << "dueno agregado correctamente" << endl;
 	else {
 		cout << "Error al agregar el dueno" << endl;
-		system("pause");
+		system(PAUSE);
 	}
-	system("pause");
+	system(PAUSE);
 }
 
  void Interfaz::agregarMascota(ContenedoraMascotas* mascotas, ContenedoraDueno* duenos, int tamM) {
-	system("cls");
+	system(CLEAR);
 	string cedula;
 	string nombre;
 	string especie;
@@ -309,38 +309,38 @@
 	cout << "(4) Ingresar Mascota(por dueno)" << endl;
 	if (mascotas->getCantidad() == tamM) {
 		cout << "Ya no puede ingresar más mascotas, esta lleno" << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	if (duenos->getCant() == 0) {
 		cout << "Error: No hay duenos ingresados" << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	cout << duenos->toString() << endl;
 	cout << "Elija la cedula del dueno de la mascota: "; getline(cin, cedula);
 	if (cedula.empty()) {
 		cout << "Error: no ingreso una cedula" << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	if (duenos->getDueno(cedula) == nullptr)
 	{
 		cout << "Error: No hay duenos con la cedula ingresada: " << cedula << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	duenoPtr = duenos->getDueno(cedula);
 	cout << "Ingrese el nombre de la mascota: "; getline(cin, nombre);
 	if (nombre.empty()) {
 		cout << "Error: no ingreso un nombre" << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	cout << "Ingrese la especia de la mascota: "; getline(cin, especie);
 	if (especie.empty()) {
 		cout << "Error: no ingreso una especie" << endl;
-		system("pause");
+		system(PAUSE);
 		return;
 	}
 	mascotaPtr = new Mascota(nombre, especie, duenoPtr);
@@ -348,7 +348,7 @@
 		cout << "Mascota agregada correctamente" << endl;
 	else
 		cout << "Error al agregar la mascota" << endl;
-	system("pause");
+	system(PAUSE);
 
 
 }
@@ -363,24 +363,24 @@
 	 Doctor* doctorPtr = nullptr;
 	 Mascota* mascotaPtr = nullptr;
 
-	 system("cls");
+	 system(CLEAR);
 	 cout << "(1) Sacar Cita" << endl;
 	 if (especialidades->getCant() == 0)
 	 {
 		 cout << "No hay especialidades agregadas" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 if (doctores->getCant() == 0)
 	 {
 		 cout << "No hay doctores ingresados" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 if (mascotas->getCantidad() == 0)
 	 {
 		 cout << "No hay mascotas ingresadas" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 cout << agenda->mostrarDias();
@@ -388,7 +388,7 @@
 	 cout << "Ingrese la hora de la cita: "; cin >> hora;
 	 if (especialidades->getCant() == 0) {
 		 cout << "No hay especialidades agregadas" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 cout << especialidades->toString() << endl;
@@ -397,14 +397,14 @@
 	 if (especialidades->getEspecialidad(pos) == nullptr)
 	 {
 		 cout << "Error: No hay especialidades con el numero ingresado" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 especialidadPtr = especialidades->getEspecialidad(pos);
 	 cout << especialidades->DoctorPorEspecialidad(especialidadPtr->getNombre(), doctores);
 	 if (doctores->getCant() == 0) {
 		 cout << "No hay doctores ingresados";
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 cout << "Ingrese la cedula del doctor: " << endl;
@@ -412,12 +412,12 @@
 	 getline(cin, cedula);
 	 if (cedula.empty()) {
 		 cout << "Error: no ingreso una cedula" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 if (!doctores->existeDoctor(cedula)) {
 		 cout << "No existe doctor con esa cedula" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 doctorPtr = doctores->getDoctor(cedula);
@@ -425,13 +425,13 @@
 	 getline(cin, cedula);
 	 if (cedula.empty()) {
 		 cout << "Error: no ingreso una cedula" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 if (mascotas->MascotasPorDueno(cedula) == "No hay mascotas registradas" || mascotas->MascotasPorDueno(cedula) == "Error: No hay duenos con la cédula ingresada: " + cedula)
 	 {
 		 cout << "No hay mascotas registradas o la cedula esta incorrecta" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 cout << mascotas->MascotasPorDueno(cedula);
@@ -439,7 +439,7 @@
 	 if (mascotas->getMascota(pos) == nullptr)
 	 {
 		 cout << "Error: No hay mascotas con el numero ingresado" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 mascotaPtr = mascotas->getMascota(pos);
@@ -448,7 +448,7 @@
 	 else
 		 cout << "Error al agregar la cita" << endl;
 
-	 system("pause");
+	 system(PAUSE);
 
  }
 
@@ -460,11 +460,11 @@
 	 string cedula;
 	 Doctor* doctorPtr = nullptr;
 	 Mascota* mascotaPtr = nullptr;
-	 system("cls");
+	 system(CLEAR);
 	 cout << "(2) Cancelar Cita" << endl;
 	 if (doctores->getCant() == 0) {
 		 cout << "No hay doctores ingresados"<<endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 
@@ -477,13 +477,13 @@
 	 getline(cin, cedula);
 	 if (cedula.empty()) {
 		 cout << "Error: no ingreso una cedula" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 if (doctores->getDoctor(cedula) == nullptr)
 	 {
 		 cout << "Error: No hay doctores con la cedula ingresada: " << cedula << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 doctorPtr = doctores->getDoctor(cedula);
@@ -491,13 +491,13 @@
 	 getline(cin, cedula);
 	 if (cedula.empty()) {
 		 cout << "Error: no ingreso una cedula" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 if (mascotas->MascotasPorDueno(cedula) == "No hay mascotas registradas" || mascotas->MascotasPorDueno(cedula) == "Error: No hay duenos con la cédula ingresada: " + cedula)
 	 {
 		 cout << "No hay mascotas registradas o la cedula esta incorrecta" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 cout << mascotas->MascotasPorDueno(cedula);
@@ -505,7 +505,7 @@
 	 cin.ignore();
 	 if (mascotas->getMascota(pos) == nullptr) {
 		 cout << "Error no hay mascotas con ese numero" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 mascotaPtr = mascotas->getMascota(pos);
@@ -514,106 +514,106 @@
 	 else
 		 cout << "Error al cancelar la cita" << endl;
 
-	 system("pause");
+	 system(PAUSE);
  }
 
  void Interfaz::mostrarCalendarioPorDoctor(Agenda* agenda, ContenedoraDoctores* doctores)
  {
 	 string cedula;
 
-	 system("cls");
+	 system(CLEAR);
 	 cout << "(3) Mostrar Calendario de Citas por Doctor" << endl;
 	 cin.ignore();
 	 if (doctores->getCant() == 0) {
 		 cout << "No hay doctores ingresados";
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 cout << "Ingrese la cedula del doctor para ver su agenda: "; getline(cin, cedula);
 	 if (cedula.empty()) {
 		 cout << "Error: no ingreso una cedula" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 if (doctores->getDoctor(cedula) != nullptr)
 		 cout << agenda->toString(cedula, doctores);
 	 else
 		 cout << "Error: No hay doctores con la cedula ingresada: " << cedula << endl;
-	 system("pause");
+	 system(PAUSE);
  }
 
  void Interfaz::mostrarCitasPorDueno(Agenda* agenda, ContenedoraMascotas* mascotas,ContenedoraDueno* duenos)
  {
 	 string cedula;
-	 system("cls");
+	 system(CLEAR);
 	 cout << "(4) Mostrar Citas por dueno" << endl;
 	 cin.ignore();
 	 if (duenos->getCant() == 0) {
 		 cout << "No hay duenos ingresados";
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 cout << "Ingrese la cedula del dueno para ver sus citas: "; getline(cin, cedula);
 	 if (cedula.empty()) {
 		 cout << "Error: no ingreso una cedula" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 if (mascotas->MascotasPorDueno(cedula) == "No hay mascotas registradas" || mascotas->MascotasPorDueno(cedula) == "Error: No hay duenos con la cédula ingresada: " + cedula)
 	 {
 		 cout << "No hay mascotas registradas o la cedula esta incorrecta" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 cout << agenda->mostrarCitasPorDueno(cedula);
-	 system("pause");
+	 system(PAUSE);
 
  }
 
  void Interfaz::mostrarListadoEspecialidades(ContenedoraEspecialidades* especialidades)
  {
-	 system("cls");
+	 system(CLEAR);
 	 cout << "(1) Mostrar Listado de Especialidades" << endl;
 	 if (especialidades->getCant() > 0 ) {
 		 cout << especialidades->toString();
 	 }
 	 else
 		 cout << "No hay especialidades registradas" << endl;
-	 system("pause");
+	 system(PAUSE);
 
  }
 
  void Interfaz::mostrarDoctoresPorEspecialidad(ContenedoraEspecialidades* especialidades, ContenedoraDoctores* doctores)
  {
-	 system("cls");
+	 system(CLEAR);
 	 cout << "(2) Mostrar Listado de Doctores por Especialidad " << endl;
 	 if (especialidades->getCant() > 0 && doctores->getCant() > 0)
 		 cout << especialidades->imprimirDoctoresOrdenados(doctores);
 	 else
 		 cout << "No hay especialidades registradas o doctores registrados" << endl;
-	 system("pause");
+	 system(PAUSE);
  }
 
  void Interfaz::mostrarDuenosConMascotas(ContenedoraDueno* duenos, ContenedoraMascotas* mascotas)
  {
-	 system("cls");
+	 system(CLEAR);
 	 cout << "(3) Mostrar duenos con sus Mascotas" << endl;
 	 if (duenos->getCant() > 0)
 		 cout << mascotas->MascotasOrdenadas(duenos);
 	 else
 		 cout << "No hay duenos registrados" << endl;
-	 system("pause");
+	 system(PAUSE);
 
  }
 
  void Interfaz::mostrarPacientesPorDoctor(Agenda* agenda, ContenedoraDoctores* doctores)
  {
 	 string cedula;
-	 system("cls");
+	 system(CLEAR);
 	 cout << "(4) Mostrar Pacientes por Doctor" << endl;
 	 if (doctores->getCant() == 0) {
 		 cout << "No hay doctores registrados en el sistema." << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 cout << "Doctores: " << endl;
@@ -622,9 +622,9 @@
 	 cout << "Ingrese la cedula del doctor para ver sus pacientes: "; getline(cin, cedula);
 	 if (cedula.empty()) {
 		 cout << "Error: no ingreso una cedula" << endl;
-		 system("pause");
+		 system(PAUSE);
 		 return;
 	 }
 	 agenda->mostrarPacientesPorDoctor(cedula, doctores);
-	 system("pause");
+	 system(PAUSE);
  }

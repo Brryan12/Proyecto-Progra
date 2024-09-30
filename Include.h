@@ -112,7 +112,7 @@ void mostrarSwitch() {
         case 4:
             // Salir del programa
             cout << "Saliendo del programa..." << endl;
-            system("pause");
+            system(PAUSE);
             break;
         default:
             Interfaz::defaultSwitch();

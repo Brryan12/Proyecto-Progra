@@ -7,6 +7,9 @@
 #include "Agenda.h"
 using namespace std;
 
+#define CLEAR CLEAR
+#define PAUSE PAUSE
+
 class Interfaz {
 public:
     static int menuPrincipal();

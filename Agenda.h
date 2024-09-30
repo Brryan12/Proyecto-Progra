@@ -51,11 +51,15 @@ public:
 	/// @param cedula cedula del dueno
 	/// @param mascotas contenedora de mascotas
 	/// @return retorna un string con las citas del dueno
-	string mostrarCitasPorDueno(string cedula, ContenedoraMascotas* mascotas);
+	string mostrarCitasPorDueno(string cedula);
 
 	/// @brief Metodo para mostrar los pacientes por doctor mediante la cedula del doctor
 	/// @param cedula cedula del doctor
 	/// @param doctores contenedora de doctores
 	/// @return retorna un string con los pacientes del doctor
 	string mostrarPacientesPorDoctor(string cedula, ContenedoraDoctores* doctores);
+
+	/// @brief Muestra los días para elegir en la agenda
+	/// @return string con la informacion de los dias
+	string mostrarDias();
 };

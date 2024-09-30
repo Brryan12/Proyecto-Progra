@@ -1,6 +1,6 @@
 #include "ContenedoraDoctores.h"
 
-ContenedoraDoctores::ContenedoraDoctores(int tam): tam(tam), cant(0){
+ContenedoraDoctores::ContenedoraDoctores(int tam): cant(0), tam(tam){
     this->doctores = new Doctor * [tam];
     for (int i = 0; i < tam; i++) {
         doctores[i] = nullptr;

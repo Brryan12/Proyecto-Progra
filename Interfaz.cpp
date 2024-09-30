@@ -220,7 +220,7 @@
 		return;
 	}
 	cout << especialidades->toString() << endl;
-	cout << "Elija la especialidad del doctor: " << endl; cin >> pos;
+	cout << "Elija el numero de la especialidad del doctor: "; cin >> pos;
 	if (especialidades->getEspecialidad(pos) == nullptr && pos == 0)
 	{
 		cout << "Error: No hay especialidades con el numero ingresado" << endl;
@@ -228,6 +228,7 @@
 		return;
 	}
 	especialidadPtr = especialidades->getEspecialidad(pos);
+	cout << "Especialidad ingresada: " << especialidadPtr->getNombre()<<endl;
 	cin.ignore();
 	cout << "Ingrese el nombre del doctor: "; getline(cin, nombre);
 	if (nombre.empty()) {
@@ -235,16 +236,16 @@
 		system("pause");
 		return;
 	}
-	cout << "Nombre ingresado: " << nombre << endl; // Depuración
+	cout << "Nombre ingresado: " << nombre << endl;
 	cout << "Ingrese la cedula del doctor: "; getline(cin, cedula);
 	if (cedula.empty()) {
 		cout << "Error: no ingreso una cedula" << endl;
 		system("pause");
 		return;
 	}
-	cout << "Cédula ingresada: " << cedula << endl; // Depuración
+	cout << "Cédula ingresada: " << cedula << endl;
 	if (doctores->existeDoctor(cedula)) {
-		cout << "Ya existe un doctor con esa cedula";
+		cout << "Ya existe un doctor con esa cedula"<<endl;
 		system("pause");
 		return;
 	}
@@ -295,6 +296,7 @@
 		cout << "Error al agregar el dueño" << endl;
 		system("pause");
 	}
+	system("pause");
 }
 
  void Interfaz::agregarMascota(ContenedoraMascotas* mascotas, ContenedoraDueno* duenos, int tamM) {
@@ -363,6 +365,25 @@
 
 	 system("cls");
 	 cout << "(1) Sacar Cita" << endl;
+	 if (especialidades->getCant() == 0)
+	 {
+		 cout << "No hay especialidades agregadas" << endl;
+		 system("pause");
+		 return;
+	 }
+	 if (doctores->getCant() == 0)
+	 {
+		 cout << "No hay doctores ingresados" << endl;
+		 system("pause");
+		 return;
+	 }
+	 if (mascotas->getCantidad() == 0)
+	 {
+		 cout << "No hay mascotas ingresadas" << endl;
+		 system("pause");
+		 return;
+	 }
+	 cout << agenda->mostrarDias();
 	 cout << "Ingrese el dia de la cita: "; cin >> dia;
 	 cout << "Ingrese la hora de la cita: "; cin >> hora;
 	 if (especialidades->getCant() == 0) {
@@ -422,7 +443,7 @@
 		 return;
 	 }
 	 mascotaPtr = mascotas->getMascota(pos);
-	 if (agenda->agregarCita(dia, hora, doctorPtr, mascotaPtr))
+	 if (agenda->agregarCita(dia-1, hora, doctorPtr, mascotaPtr))
 		 cout << "Cita agregada correctamente" << endl;
 	 else
 		 cout << "Error al agregar la cita" << endl;
@@ -436,20 +457,22 @@
 	 int dia;
 	 int hora;
 	 int pos;
-	 Especialidad* especialidadPtr = nullptr;
 	 string cedula;
 	 Doctor* doctorPtr = nullptr;
 	 Mascota* mascotaPtr = nullptr;
 	 system("cls");
 	 cout << "(2) Cancelar Cita" << endl;
-	 cout << "Ingrese el dia de la cita a cancelar: "; cin >> dia;
-	 cout << "Ingrese la hora de la cita a cancelar: "; cin >> hora;
-	 cin.ignore();
 	 if (doctores->getCant() == 0) {
-		 cout << "No hay doctores ingresados";
+		 cout << "No hay doctores ingresados"<<endl;
 		 system("pause");
 		 return;
 	 }
+
+	 cout << agenda->mostrarDias();
+	 cout << "Ingrese el dia de la cita a cancelar: "; cin >> dia;
+	 cout << "Ingrese la hora de la cita a cancelar: "; cin >> hora;
+	 cin.ignore();
+
 	 cout << "Ingrese la cedula del doctor con el que tiene la cita: ";
 	 getline(cin, cedula);
 	 if (cedula.empty()) {
@@ -486,12 +509,12 @@
 		 return;
 	 }
 	 mascotaPtr = mascotas->getMascota(pos);
-	 if (agenda->cancelarCita(dia, hora, doctorPtr, mascotaPtr))
+	 if (agenda->cancelarCita(dia-1, hora, doctorPtr, mascotaPtr))
 		 cout << "Cita cancelada correctamente" << endl;
 	 else
 		 cout << "Error al cancelar la cita" << endl;
-	 system("pause");
 
+	 system("pause");
  }
 
  void Interfaz::mostrarCalendarioPorDoctor(Agenda* agenda, ContenedoraDoctores* doctores)
@@ -542,7 +565,7 @@
 		 system("pause");
 		 return;
 	 }
-	 cout << agenda->mostrarCitasPorDueno(cedula, mascotas);
+	 cout << agenda->mostrarCitasPorDueno(cedula);
 	 system("pause");
 
  }
@@ -555,7 +578,7 @@
 		 cout << especialidades->toString();
 	 }
 	 else
-		 cout << "No hay especialidades registradas o no hay doctores registrados" << endl;
+		 cout << "No hay especialidades registradas" << endl;
 	 system("pause");
 
  }
@@ -567,7 +590,7 @@
 	 if (especialidades->getCant() > 0 && doctores->getCant() > 0)
 		 cout << especialidades->imprimirDoctoresOrdenados(doctores);
 	 else
-		 cout << "No hay especialidades registradas" << endl;
+		 cout << "No hay especialidades registradas o doctores registrados" << endl;
 	 system("pause");
  }
 

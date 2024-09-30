@@ -65,7 +65,7 @@ void mostrarSwitch() {
                     Interfaz::sacarCita(agenda, doctores, mascotas, especialidades);
                     break;
                 case 2:
-
+                    Interfaz::cancelarCita(agenda, doctores, mascotas);
                     break;
                 case 3:
                     Interfaz::mostrarCalendarioPorDoctor(agenda, doctores);

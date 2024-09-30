@@ -1,6 +1,6 @@
 #include "ContenedoraEspecialidades.h"
 
-ContenedoraEspecialidades::ContenedoraEspecialidades(int tam): tam(tam), cant(0){
+ContenedoraEspecialidades::ContenedoraEspecialidades(int tam): cant(0), tam(tam) {
 	this->especialidad = new Especialidad * [tam];
 	for (int i = 0; i < tam; i++) {
 		especialidad[i] = nullptr;
@@ -10,8 +10,8 @@ ContenedoraEspecialidades::ContenedoraEspecialidades(int tam): tam(tam), cant(0)
 
 Especialidad* ContenedoraEspecialidades::getEspecialidad(int posicion)
 {
-	if (posicion >= 0 && posicion < cant) {
-		return this->especialidad[posicion-1];;
+	if (posicion > 0 && posicion <= cant) {
+		return this->especialidad[posicion-1];
 	}
 	else {
 		return nullptr;

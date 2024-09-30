@@ -91,7 +91,7 @@ Agenda::~Agenda() {
 		return s.str();
 	}
 
-	string Agenda::mostrarCitasPorDueno(string cedula, ContenedoraMascotas* mascotas) {
+	string Agenda::mostrarCitasPorDueno(string cedula) {
 		stringstream s;
 		bool encontrado = false;
 
@@ -165,6 +165,16 @@ Agenda::~Agenda() {
 			}
 		}
 
+		return s.str();
+	}
+
+	string Agenda::mostrarDias()
+	{
+		stringstream s;
+		s << "Días de la semana:\n";
+		for (int i = 0; i < 6; i++) {
+			s << i+1 << ". " << dia[i] << "\n";
+		}
 		return s.str();
 	}
 

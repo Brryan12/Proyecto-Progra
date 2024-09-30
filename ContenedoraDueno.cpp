@@ -1,6 +1,6 @@
 #include "ContenedoraDueno.h"
 
-ContenedoraDueno::ContenedoraDueno(int tam): tam(tam), cant(0){
+ContenedoraDueno::ContenedoraDueno(int tam): cant(0), tam(tam) {
 	this->duenos = new Dueno * [tam];
 	for (int i = 0; i < tam; i++) {
 		duenos[i] = nullptr;

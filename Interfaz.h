@@ -7,8 +7,13 @@
 #include "Agenda.h"
 using namespace std;
 
+#ifdef _WIN64 OR _WIN32
 #define CLEAR "cls"
 #define PAUSE "pause"
+#elif __linux__ OR __unix__ OR __APPLE__
+#define CLEAR "clear"
+#define PAUSE "read -n1 -r -p \"Press any key to continue...\""
+#endif
 
 class Interfaz {
 public:

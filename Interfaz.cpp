@@ -318,6 +318,7 @@
 		return;
 	}
 	cout << duenos->toString() << endl;
+	cin.ignore();
 	cout << "Elija la cedula del dueno de la mascota: "; getline(cin, cedula);
 	if (cedula.empty()) {
 		cout << "Error: no ingreso una cedula" << endl;

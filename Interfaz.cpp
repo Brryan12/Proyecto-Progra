@@ -521,7 +521,12 @@
  void Interfaz::mostrarCalendarioPorDoctor(Agenda* agenda, ContenedoraDoctores* doctores)
  {
 	 string cedula;
-
+	 if (doctores->getCant() == 0)
+	 {
+		 cout << "No hay doctores ingresados";
+		 system(PAUSE);
+		 return;
+	 }
 	 system(CLEAR);
 	 cout << "(3) Mostrar Calendario de Citas por Doctor" << endl;
 	 cin.ignore();
@@ -545,6 +550,12 @@
 
  void Interfaz::mostrarCitasPorDueno(Agenda* agenda, ContenedoraMascotas* mascotas,ContenedoraDueno* duenos)
  {
+	 if (duenos->getCant() == 0)
+	 {
+		 cout << "No hay duenos ingresados";
+		 system(PAUSE);
+		 return;
+	 }
 	 string cedula;
 	 system(CLEAR);
 	 cout << "(4) Mostrar Citas por dueno" << endl;

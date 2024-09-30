@@ -221,7 +221,7 @@
 	}
 	cout << especialidades->toString() << endl;
 	cout << "Elija el numero de la especialidad del doctor: "; cin >> pos;
-	if (especialidades->getEspecialidad(pos) == nullptr && pos == 0)
+	if (especialidades->getEspecialidad(pos) == nullptr || pos == 0)
 	{
 		cout << "Error: No hay especialidades con el numero ingresado" << endl;
 		system("pause");

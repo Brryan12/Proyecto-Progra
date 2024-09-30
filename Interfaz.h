@@ -7,8 +7,8 @@
 #include "Agenda.h"
 using namespace std;
 
-#define CLEAR CLEAR
-#define PAUSE PAUSE
+#define CLEAR "cls"
+#define PAUSE "pause"
 
 class Interfaz {
 public:

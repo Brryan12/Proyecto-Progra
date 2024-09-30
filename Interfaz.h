@@ -7,16 +7,19 @@
 #include "Agenda.h"
 using namespace std;
 
-#ifdef _WIN64 OR _WIN32
+#if defined(_WIN64) || defined(_WIN32)
 #define CLEAR "cls"
 #define PAUSE "pause"
-#elif __linux__ OR __unix__ OR __APPLE__
+#elif defined(__linux__) || defined(__unix__) || defined(__APPLE__)
 #define CLEAR "clear"
 #define PAUSE "read -n1 -r -p \"Press any key to continue...\""
 #endif
 
 class Interfaz {
 public:
+
+    /// @brief 
+    /// @return 
     static int menuPrincipal();
     static int menuAdministracion();
     static int menuControlCitas();

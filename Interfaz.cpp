@@ -278,6 +278,7 @@
 		system("pause");
 		return;
 	}
+	cin.ignore();
 	cout << "Ingrese la cedula del dueno: "; getline(cin, cedula);
 	if (cedula.empty()) {
 		cout << "Error: no ingreso una cedula" << endl;

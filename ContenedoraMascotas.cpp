@@ -53,30 +53,31 @@ Mascota* ContenedoraMascotas::getMascota(int posicion) {
 }
 
  string ContenedoraMascotas::MascotasPorDueno(string cedula) const {
-	stringstream s;
-	bool encontrado = false;
+	 stringstream s;
+	 bool encontrado = false;
 
-	if (cantidad == 0) {
-		s << "No hay mascotas registradas" << endl;
-		return s.str();
-	}
-	for (int i = 0; i < cantidad; i++) {
-		if (mascotas[i]->getDueno()->getCedula() == cedula) {
-			if (!encontrado) {
-				cout << "\nMascotas registradas por el dueno: " << mascotas[i]->getDueno()->toString() << endl;
-				encontrado = true;
-			}
-			cout << i+1<<" Nombre: " << mascotas[i]->getNombre()
-				<< ", Especie: " << mascotas[i]->getEspecie()
-				<< endl;
-		}
-	}
-	if (!encontrado) {
-		s << "Error: No hay duenos con la cédula ingresada: "<<cedula<<endl ;
-	}
+	 if (cantidad == 0) {
+		 s << "No hay mascotas registradas" << endl;
+		 return s.str();
+	 }
+	 for (int i = 0; i < cantidad; i++) {
+		 if (mascotas[i]->getDueno()->getCedula() == cedula) {
+			 if (!encontrado) {
+				 s << "\nMascotas registradas por el dueno: " << mascotas[i]->getDueno()->toString() << endl;
+				 encontrado = true;
+			 }
+			 s << "Numero: " << i + 1 << ", Nombre: " << mascotas[i]->getNombre()
+				 << ", Especie: " << mascotas[i]->getEspecie()
+				 << endl;
+		 }
+	 }
+	 if (!encontrado) {
+		 s << "Error: No hay duenos con la cédula ingresada: " << cedula << endl;
+		 return s.str();
+	 }
 
-	return s.str();
-}
+	 return s.str();
+ }
 
  string ContenedoraMascotas::MascotasOrdenadas(ContenedoraDueno* duenos) const {
 	 stringstream s;

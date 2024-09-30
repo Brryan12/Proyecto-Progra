@@ -30,7 +30,7 @@ int ContenedoraMascotas::getCantidad()
 	return cantidad;
 }
 Mascota* ContenedoraMascotas::getMascota(int posicion) {
-	if (posicion >= 0 && posicion < cantidad) {
+	if (posicion > 0 && posicion <= cantidad) {
 		return mascotas[posicion-1];
 	}
 	return nullptr; // Manejar caso de índice inválido

@@ -93,7 +93,6 @@
 	 system("cls");
 	 cout << "Opción no válida. Intente de nuevo." << endl;
 	 system("pause");
-
  }
 
  void Interfaz::regresarPrincipal()

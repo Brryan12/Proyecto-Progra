@@ -32,7 +32,7 @@ void Dueno::setCedula(string cedula)
 string Dueno::toString()
 {
 	stringstream s;
-	s << "Dueño: " << nombre << " - Cedula: " << cedula;
+	s << "dueno: " << nombre << " - Cedula: " << cedula;
 	return s.str();
 }
 

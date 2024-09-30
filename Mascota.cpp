@@ -27,7 +27,7 @@ string Mascota::toString() const
 	stringstream s;
 	s << "Nombre: " << nombre << "\n";
 	s << "Especie: " << especie << "\n";
-	s << "Dueño: " << dueno->getNombre() << "\n";
+	s << "dueno: " << dueno->getNombre() << "\n";
 	return s.str();
 }
 

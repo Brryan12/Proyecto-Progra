@@ -42,7 +42,7 @@ Mascota* ContenedoraMascotas::getMascota(int posicion) {
 	{
 		 stringstream s;
 		for (int i = 0; i < cantidad; i++) {
-			s << "Dueño: " << mascotas[i]->getDueno()->toString() <<  endl
+			s << "dueno: " << mascotas[i]->getDueno()->toString() <<  endl
 				<< "---MASCOTA---\n"
 				<< "Nombre: " << mascotas[i]->getNombre() <<  endl
 				<< "Especie: " << mascotas[i]->getEspecie()
@@ -63,7 +63,7 @@ Mascota* ContenedoraMascotas::getMascota(int posicion) {
 	for (int i = 0; i < cantidad; i++) {
 		if (mascotas[i]->getDueno()->getCedula() == cedula) {
 			if (!encontrado) {
-				cout << "\nMascotas registradas por el dueño: " << mascotas[i]->getDueno()->toString() << endl;
+				cout << "\nMascotas registradas por el dueno: " << mascotas[i]->getDueno()->toString() << endl;
 				encontrado = true;
 			}
 			cout << i+1<<" Nombre: " << mascotas[i]->getNombre()
@@ -72,7 +72,7 @@ Mascota* ContenedoraMascotas::getMascota(int posicion) {
 		}
 	}
 	if (!encontrado) {
-		s << "Error: No hay dueños con la cédula ingresada: "<<cedula<<endl ;
+		s << "Error: No hay duenos con la cédula ingresada: "<<cedula<<endl ;
 	}
 
 	return s.str();
@@ -81,7 +81,7 @@ Mascota* ContenedoraMascotas::getMascota(int posicion) {
  string ContenedoraMascotas::MascotasOrdenadas(ContenedoraDueno* duenos) const {
 	 stringstream s;
 
-	 // Recorremos los dueños
+	 // Recorremos los duenos
 	 for (int i = 0; i < duenos->getCant(); i++) {
 		 Dueno* duenoActual = duenos->getDuenoPos(i);
 		 s << "Dueno: " << duenoActual->getNombre() << endl;

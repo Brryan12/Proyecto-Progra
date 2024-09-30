@@ -10,10 +10,10 @@
 - Ingresar y listar especialidades.
 - Ingresar y listar doctores. Al ingresar un doctor este debe ser asociado a una
 especialidad existente.
-- Registrar y listar dueños de mascotas.
-- Registrar y listar mascotas. Cada nueva mascota debe asociarse con un dueño
-existente (recordar que un mismo dueño puede tener n mascotas).
-- Asignación de citas. Antes de brindar una cita, el paciente, el dueño y el doctor
+- Registrar y listar duenos de mascotas.
+- Registrar y listar mascotas. Cada nueva mascota debe asociarse con un dueno
+existente (recordar que un mismo dueno puede tener n mascotas).
+- Asignación de citas. Antes de brindar una cita, el paciente, el dueno y el doctor
 deben haber sido ingresados al sistema. Antes de asignar una cita se debe
 visualizar adecuadamente la agenda del doctor especifico. No se pueden brindar
 citas en horarios ocupados. A cada cita se le asigna una hora de tiempo. Solo se
@@ -42,8 +42,8 @@ capacidad máxima adecuada.
 
 1. **Ingresar Especialidades**
 2. **Ingresar Doctor** (por especialidad)
-3. **Ingresar Dueño**
-4. **Ingresar Mascota** (por dueño)
+3. **Ingresar dueno**
+4. **Ingresar Mascota** (por dueno)
 0. **Regresar al Menú Principal**
 
 **Ingrese la opción:** `__`
@@ -53,7 +53,7 @@ capacidad máxima adecuada.
 
 - El menú principal permitirá acceder a los diferentes submenús del programa.
 - Recuerde que no se puede ingresar un doctor en una especialidad no existente.
-- Recuerde que no se puede ingresar una mascota para un dueño no existente.
+- Recuerde que no se puede ingresar una mascota para un dueno no existente.
 
 ---
 ## Submenú Control de Citas
@@ -61,22 +61,22 @@ capacidad máxima adecuada.
 1. **Sacar Cita**
 2. **Cancelar Cita**
 3. **Mostrar Calendario de Citas por Doctor**
-4. **Mostrar Citas por Dueño**
+4. **Mostrar Citas por dueno**
 0. **Regresar al Menú Principal**
 
 **Ingrese la opción:** `__`
 
 ### Instrucciones:
 
-- **Sacar cita:** Se debe pedir el número de identificación del dueño y mostrar la lista de sus mascotas. El usuario debe elegir la mascota deseada de la lista mostrada.
+- **Sacar cita:** Se debe pedir el número de identificación del dueno y mostrar la lista de sus mascotas. El usuario debe elegir la mascota deseada de la lista mostrada.
   
   Luego, se debe pedir la especialidad deseada y mostrar la lista de doctores disponibles en esa especialidad. El usuario podrá elegir el doctor y luego seleccionar una fecha y hora para la cita de acuerdo al horario semanal del doctor.
 
-- **Cancelar cita:** Se debe pedir el número de identificación del dueño y mostrar los doctores con los cuales tiene citas asignadas. El usuario elige el doctor y luego selecciona la cita asignada que desea cancelar.
+- **Cancelar cita:** Se debe pedir el número de identificación del dueno y mostrar los doctores con los cuales tiene citas asignadas. El usuario elige el doctor y luego selecciona la cita asignada que desea cancelar.
   
  - **Mostrar Calendario de Citas por Doctor:** El calendario se debe mostrar en formato de tabla con los 6 días y todas las horas de consulta. Las horas ocupadas por citas asignadas deben estar destacadas.
 
-- **Mostrar Citas por Dueño:** Se deben mostrar todas las mascotas del dueño. El usuario elige la mascota para visualizar las citas correspondientes.
+- **Mostrar Citas por dueno:** Se deben mostrar todas las mascotas del dueno. El usuario elige la mascota para visualizar las citas correspondientes.
 
 ---
 
@@ -84,7 +84,7 @@ capacidad máxima adecuada.
 
 1. **Mostrar Listado de Especialidades**
 2. **Mostrar Listado de Doctores por Especialidad**
-3. **Mostrar Dueños con sus Mascotas**
+3. **Mostrar duenos con sus Mascotas**
 4. **Mostrar Pacientes por Doctor**
 0. **Regresar al Menú Principal**
 

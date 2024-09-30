@@ -103,7 +103,7 @@ Agenda::~Agenda() {
 			for (int j = 0; j < dias[i]->getCant(); j++) {
 				Cita* cita = dias[i]->getCita(j);
 
-				// Si la cita pertenece al dueño con la cédula dada
+				// Si la cita pertenece al dueno con la cédula dada
 				if (cita->getMascota()->getDueno()->getCedula() == cedula) {
 					if (!encontrado) {
 						// Solo una vez imprimimos si encontramos la primera cita
@@ -123,7 +123,7 @@ Agenda::~Agenda() {
 
 		// Si no se encontró ninguna cita
 		if (!encontrado) {
-			s << "No se encontraron citas para el dueño con cédula " << cedula << ".\n";
+			s << "No se encontraron citas para el dueno con cédula " << cedula << ".\n";
 		}
 
 		return s.str();

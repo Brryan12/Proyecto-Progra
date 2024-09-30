@@ -51,7 +51,7 @@ bool ContenedoraDueno::existeDueno(string cedula)
 }
 
 bool ContenedoraDueno::agregarDueno(Dueno* dueno) {
-	if (existeDueno(dueno->getCedula()) == false) { //(!existeDueño(dueño->getCedula()) es lo mismo
+	if (existeDueno(dueno->getCedula()) == false) { //(!existeDueño(dueno->getCedula()) es lo mismo
 		if (cant < tam)
 		{
 			duenos[cant] = dueno;

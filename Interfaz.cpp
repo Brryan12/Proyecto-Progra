@@ -123,8 +123,8 @@
 	cout << "----Submenú Administración----" << endl;
 	cout << "(1) Ingresar Especialidades" << endl;
 	cout << "(2) Ingresar Doctor(por especialidad)" << endl;
-	cout << "(3) Ingresar Dueño" << endl;
-	cout << "(4) Ingresar Mascota(por dueño)" << endl;
+	cout << "(3) Ingresar dueno" << endl;
+	cout << "(4) Ingresar Mascota(por dueno)" << endl;
 	cout << "(0) Regresar al Menú Principal" << endl;
 	cout << "Seleccione una opción: "; cin >> op1;
 	return op1;
@@ -139,7 +139,7 @@
 	 cout << "(1) Sacar Cita" << endl;
 	 cout << "(2) Cancelar Cita" << endl;
 	 cout << "(3) Mostrar Calendario de Citas por Doctor" << endl;
-	 cout << "(4) Mostrar Citas por Dueño" << endl;
+	 cout << "(4) Mostrar Citas por dueno" << endl;
 	 cout << "(0) Regresar al Menú Principal" << endl;
 	 cout << "Seleccione una opción: "; cin >> op2;
 	 return op2;
@@ -153,7 +153,7 @@
 	 cout << "----Submenú Control Citas----" << endl;
 	 cout << "(1) Mostrar Listado de Especialidades" << endl;
 	 cout << "(2) Mostrar Listado de Doctores por Especialidad" << endl;
-	 cout << "(3) Mostrar Dueños con sus Mascotas" << endl;
+	 cout << "(3) Mostrar duenos con sus Mascotas" << endl;
 	 cout << "(4) Mostrar Pacientes por Doctor" << endl;
 	 cout << "(0) Regresar al Menú Principal" << endl;
 	 cout << "Seleccione una opción: "; cin >> op3;
@@ -265,35 +265,35 @@
 	string nombre;
 	string cedula;
 	Dueno* duenoPtr = nullptr;
-	cout << "(3) Ingresar Dueño" << endl;
+	cout << "(3) Ingresar dueno" << endl;
 	if (duenos->getCant() == tamDueno) {
 		cout << "Ya no puede ingresar más duenos, esta lleno" << endl;
 		system("pause");
 		return;
 	}
 	cin.ignore();
-	cout << "Ingrese el nombre del dueño: "; getline(cin, nombre);
+	cout << "Ingrese el nombre del dueno: "; getline(cin, nombre);
 	if (nombre.empty()) {
 		cout << "Error: no ingreso un nombre" << endl;
 		system("pause");
 		return;
 	}
-	cout << "Ingrese la cedula del dueño: "; getline(cin, cedula);
+	cout << "Ingrese la cedula del dueno: "; getline(cin, cedula);
 	if (cedula.empty()) {
 		cout << "Error: no ingreso una cedula" << endl;
 		system("pause");
 		return;
 	}
 	if (duenos->existeDueno(cedula)) {
-		cout << "Ya existe un dueño con esa cedula" << endl;
+		cout << "Ya existe un dueno con esa cedula" << endl;
 		system("pause");
 		return;
 	}
 	duenoPtr = new Dueno(nombre, cedula);
 	if (duenos->agregarDueno(duenoPtr))
-		cout << "Dueño agregado correctamente" << endl;
+		cout << "dueno agregado correctamente" << endl;
 	else {
-		cout << "Error al agregar el dueño" << endl;
+		cout << "Error al agregar el dueno" << endl;
 		system("pause");
 	}
 	system("pause");
@@ -306,19 +306,19 @@
 	string especie;
 	Dueno* duenoPtr = nullptr;
 	Mascota* mascotaPtr = nullptr;
-	cout << "(4) Ingresar Mascota(por dueño)" << endl;
+	cout << "(4) Ingresar Mascota(por dueno)" << endl;
 	if (mascotas->getCantidad() == tamM) {
 		cout << "Ya no puede ingresar más mascotas, esta lleno" << endl;
 		system("pause");
 		return;
 	}
 	if (duenos->getCant() == 0) {
-		cout << "Error: No hay dueños ingresados" << endl;
+		cout << "Error: No hay duenos ingresados" << endl;
 		system("pause");
 		return;
 	}
 	cout << duenos->toString() << endl;
-	cout << "Elija la cedula del dueño de la mascota: "; getline(cin, cedula);
+	cout << "Elija la cedula del dueno de la mascota: "; getline(cin, cedula);
 	if (cedula.empty()) {
 		cout << "Error: no ingreso una cedula" << endl;
 		system("pause");
@@ -326,7 +326,7 @@
 	}
 	if (duenos->getDueno(cedula) == nullptr)
 	{
-		cout << "Error: No hay dueños con la cedula ingresada: " << cedula << endl;
+		cout << "Error: No hay duenos con la cedula ingresada: " << cedula << endl;
 		system("pause");
 		return;
 	}
@@ -421,14 +421,14 @@
 		 return;
 	 }
 	 doctorPtr = doctores->getDoctor(cedula);
-	 cout << "Ingrese la cedula del dueño de la mascota: " << endl;
+	 cout << "Ingrese la cedula del dueno de la mascota: " << endl;
 	 getline(cin, cedula);
 	 if (cedula.empty()) {
 		 cout << "Error: no ingreso una cedula" << endl;
 		 system("pause");
 		 return;
 	 }
-	 if (mascotas->MascotasPorDueno(cedula) == "No hay mascotas registradas" || mascotas->MascotasPorDueno(cedula) == "Error: No hay dueños con la cédula ingresada: " + cedula)
+	 if (mascotas->MascotasPorDueno(cedula) == "No hay mascotas registradas" || mascotas->MascotasPorDueno(cedula) == "Error: No hay duenos con la cédula ingresada: " + cedula)
 	 {
 		 cout << "No hay mascotas registradas o la cedula esta incorrecta" << endl;
 		 system("pause");
@@ -487,14 +487,14 @@
 		 return;
 	 }
 	 doctorPtr = doctores->getDoctor(cedula);
-	 cout << "Ingrese la cedula del dueño: ";
+	 cout << "Ingrese la cedula del dueno: ";
 	 getline(cin, cedula);
 	 if (cedula.empty()) {
 		 cout << "Error: no ingreso una cedula" << endl;
 		 system("pause");
 		 return;
 	 }
-	 if (mascotas->MascotasPorDueno(cedula) == "No hay mascotas registradas" || mascotas->MascotasPorDueno(cedula) == "Error: No hay dueños con la cédula ingresada: " + cedula)
+	 if (mascotas->MascotasPorDueno(cedula) == "No hay mascotas registradas" || mascotas->MascotasPorDueno(cedula) == "Error: No hay duenos con la cédula ingresada: " + cedula)
 	 {
 		 cout << "No hay mascotas registradas o la cedula esta incorrecta" << endl;
 		 system("pause");
@@ -546,20 +546,20 @@
  {
 	 string cedula;
 	 system("cls");
-	 cout << "(4) Mostrar Citas por Dueño" << endl;
+	 cout << "(4) Mostrar Citas por dueno" << endl;
 	 cin.ignore();
 	 if (duenos->getCant() == 0) {
 		 cout << "No hay duenos ingresados";
 		 system("pause");
 		 return;
 	 }
-	 cout << "Ingrese la cedula del dueño para ver sus citas: "; getline(cin, cedula);
+	 cout << "Ingrese la cedula del dueno para ver sus citas: "; getline(cin, cedula);
 	 if (cedula.empty()) {
 		 cout << "Error: no ingreso una cedula" << endl;
 		 system("pause");
 		 return;
 	 }
-	 if (mascotas->MascotasPorDueno(cedula) == "No hay mascotas registradas" || mascotas->MascotasPorDueno(cedula) == "Error: No hay dueños con la cédula ingresada: " + cedula)
+	 if (mascotas->MascotasPorDueno(cedula) == "No hay mascotas registradas" || mascotas->MascotasPorDueno(cedula) == "Error: No hay duenos con la cédula ingresada: " + cedula)
 	 {
 		 cout << "No hay mascotas registradas o la cedula esta incorrecta" << endl;
 		 system("pause");
@@ -597,11 +597,11 @@
  void Interfaz::mostrarDuenosConMascotas(ContenedoraDueno* duenos, ContenedoraMascotas* mascotas)
  {
 	 system("cls");
-	 cout << "(3) Mostrar Dueños con sus Mascotas" << endl;
+	 cout << "(3) Mostrar duenos con sus Mascotas" << endl;
 	 if (duenos->getCant() > 0)
 		 cout << mascotas->MascotasOrdenadas(duenos);
 	 else
-		 cout << "No hay dueños registrados" << endl;
+		 cout << "No hay duenos registrados" << endl;
 	 system("pause");
 
  }

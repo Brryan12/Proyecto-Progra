@@ -18,7 +18,7 @@ int ContenedoraCitasDia::getCant() {
 }
 
 Cita* ContenedoraCitasDia::getCita(int posicion) {
-    if (posicion > 0 && posicion <= cant) {
+    if (posicion >= 0 && posicion < cant) {
         return citas[posicion];
     }
 

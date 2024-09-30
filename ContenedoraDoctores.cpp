@@ -48,7 +48,7 @@ Doctor* ContenedoraDoctores::getDoctor(string cedula)
 	return nullptr;
 }
 Doctor* ContenedoraDoctores::getDoctorPos(int posicion) {
-    if (posicion > 0 && posicion <= cant) {
+    if (posicion >= 0 && posicion < cant) {
         return doctores[posicion];
     }
     return nullptr; 
